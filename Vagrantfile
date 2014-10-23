@@ -16,6 +16,7 @@ $BOOTSTRAP_SCRIPT = <<EOF
 
   # Install s3cmd
   apt-get install -y python-pip
+  pip install python-dateutil
   pip install https://github.com/s3tools/s3cmd/archive/v1.5.0-rc1.tar.gz
 
   # Copy private keys
