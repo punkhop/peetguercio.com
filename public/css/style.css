@@ -120,6 +120,10 @@ a:focus {
 	float: left;
 }
 
+.videoBG, .videoBG_wrapper {
+   width: 100% !important;
+}
+
 /*********************
 bootstrap navbar overrides
 *************************/
@@ -353,6 +357,12 @@ h2.short-heading:first-letter{
 .video_link > a{
 	color: #8fb521;
 }
+
+/*
+.videos img {
+  cursor: pointer;
+}
+*/
 
 /***************live*******************/
 
