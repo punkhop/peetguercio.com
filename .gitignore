@@ -1,2 +1,3 @@
 .keys
 .vagrant/
+.DS_Store
