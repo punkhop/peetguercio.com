@@ -14,6 +14,10 @@ $BOOTSTRAP_SCRIPT = <<EOF
   # Make vagrant automatically go to /vagrant when we ssh in.
   echo "cd /vagrant" | sudo tee -a ~vagrant/.profile
 
+  # Install s3cmd
+  apt-get install -y python-pip
+  pip install https://github.com/s3tools/s3cmd/archive/v1.5.0-rc1.tar.gz
+
   # Copy private keys
   if [ -e /vagrant/.keys ]; then
     cat /vagrant/.keys | sudo tee -a ~vagrant/.bashrc > /dev/null
