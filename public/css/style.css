@@ -646,10 +646,9 @@ h2.short-heading:first-letter {
     }
 }
 
-/* LOGOS should only show when navbar is sticky*/
 #logos {
   background:url(../img/pg-bracket-logo.png) no-repeat top left;
   width: 69px;
   height: 52px;
-  //visibility: hidden;
+  display: none;
 }
