@@ -6,7 +6,16 @@ Sticky Navbar
 =============================================== */
 
 $(document).ready(function(){
+    var LOGO_FADE_MILLISECONDS = 500;
     $(".navbar").sticky({topSpacing:0});
+    $(".navbar").on('sticky-start', function() {
+      console.log("sticky: on");
+      $('#logos').fadeIn(LOGO_FADE_MILLISECONDS);
+    });
+    $(".navbar").on('sticky-end', function() {
+      console.log("sticky: off");
+      $('#logos').fadeOut(LOGO_FADE_MILLISECONDS);
+    });
 });
 
 
