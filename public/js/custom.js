@@ -89,4 +89,9 @@ $(document).ready(function() {
 Scroll animations
 =============================================== */
 
-window.sr = new scrollReveal();
+// DISABLED FOR NOW UNTIL THEY WORK WIH STICKY
+/*
+window.sr = new scrollReveal({
+  reset: true
+});
+*/
