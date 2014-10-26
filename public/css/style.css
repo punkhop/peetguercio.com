@@ -69,7 +69,7 @@ a:active,
 a:hover,
 a:focus {
     outline: 0;
-    background: transparent;
+    //background: transparent;
     color: #35bdf6 !important;
     text-decoration: none;
 }

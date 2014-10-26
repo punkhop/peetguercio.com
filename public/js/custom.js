@@ -2,7 +2,7 @@
 
 
 /* ==============================================
-Sticky Navbar
+Sticky Navbar AND Logo Fading
 =============================================== */
 
 $(document).ready(function(){
@@ -57,22 +57,6 @@ $(function() {
 });
 
 
-/***********logo effect******************/
-// var mywindow = $(window);
-// var mypos = mywindow.scrollTop();
-// mywindow.scroll(function() {
-//     if(mywindow.scrollTop() > 170)
-//     {
-//         $('.logo').fadeIn();
-//     }
-//     else
-//     {
-//         $('.logo').fadeOut();
-//     }
-//     mypos = mywindow.scrollTop();
-//  });
-
-
 /*********** BIG VIDEO **********/
 $(function() {
   opts ={
@@ -81,4 +65,21 @@ $(function() {
     zIndex:0
   };
   var videoBG = $('.main_video').videoBG(opts);
+});
+
+/* ==============================================
+Video Lightboxes
+=============================================== */
+
+$(document).ready(function() {
+	$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {},
+      overlay: {
+        locked: false
+      }
+		}
+	});
 });
