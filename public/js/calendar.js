@@ -14,9 +14,9 @@ function getMyFeed() {
 function handleMyFeed(result) {
   var entries = result.feed.entry.slice(0,10);
   for (var i = 0; i < entries.length; i++) {
-      var calendarEntry = entries[i];
-      var calendarTitle = calendarEntry.getTitle().getText();
-      console.log(calendarTitle);
+      var entry = entries[i];
+      var title = entry.getTitle().getText();
+      console.log(title);
     }
   }
 
