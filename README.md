@@ -11,10 +11,10 @@ export AWS_SECRET_ACCESS_KEY=...
 
 AWS
 ---
-- The "public folder gets synced via **s3cmd** to bucket **peetguercio.com**.
+- The "public folder gets synced via **s3cmd** to bucket **fresh.peetguercio.com**.
 - The CloudFront distribution ***d2imvi6cnie4z0.cloudfront.net*** uses that bucket as its origin.
 - In CloudFlare, we CNAME **www.peetguercio.com** to that distribution.
-- If cache seems stale, check http://peetguercio.com.s3.amazonaws.com/ .
+- If cache seems stale, check http://fresh.peetguercio.com.s3.amazonaws.com/ .
 
 Deploy
 ------
