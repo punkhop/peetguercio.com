@@ -19,5 +19,8 @@ AWS
 Deploy
 ------
 ```bash
+# cd to main peetguercio.com directory
+vagrant up
+vagrant ssh
 make deploy
 ```
