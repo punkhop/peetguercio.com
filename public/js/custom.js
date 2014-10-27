@@ -73,6 +73,9 @@ Video Lightboxes
 
 $(document).ready(function() {
 	$('.fancybox-media').fancybox({
+    width: 1280,
+    height: 720,
+    aspectRatio: true,
 		openEffect  : 'none',
 		closeEffect : 'none',
 		helpers : {
