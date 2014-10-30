@@ -60,7 +60,7 @@ $(function() {
 /*********** BIG VIDEO **********/
 $(function() {
   opts ={
-    webm:'video.mov',
+    webm:'video.webm',
     scale:true,
     zIndex:0
   };
