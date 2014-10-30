@@ -11,6 +11,12 @@ function getMyFeed() {
   myService.getEventsFeed(feedUrl, handleMyFeed, handleError);
 }
 
+function zeroPad(n,length){
+  var s=n+"",needed=length-s.length;
+  if (needed>0) s=(Math.pow(10,needed)+"").slice(1)+s;
+  return s;
+}
+
 function handleMyFeed(result) {
   // get all calendar entries
   var entries = result.feed.entry;
@@ -19,7 +25,7 @@ function handleMyFeed(result) {
       var entry = entries[i];
       var date = new Date(entry.getTimes()[0].startTime);
       var title = entry.getTitle().getText();
-      var formatted = (date.getMonth()+1) + '/' + date.getDate() + ' &nbsp;-&nbsp; <a target=_blank href="' + entry.link[0].href + '">' + title + '</a>';
+      var formatted = zeroPad((date.getMonth()+1),2) + '/' + zeroPad(date.getDate(),2) + ' &nbsp;-&nbsp; <a target=_blank href="' + entry.link[0].href + '">' + title + '</a>';
       //console.log(date);
       //console.log(formatted);
       //console.log('---');
