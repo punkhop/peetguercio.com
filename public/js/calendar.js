@@ -19,7 +19,7 @@ function handleMyFeed(result) {
       var entry = entries[i];
       var date = new Date(entry.getTimes()[0].startTime);
       var title = entry.getTitle().getText();
-      var formatted = (date.getMonth()+1) + '/' + date.getDate() + ' &nbsp;-&nbsp; ' + title;
+      var formatted = (date.getMonth()+1) + '/' + date.getDate() + ' &nbsp;-&nbsp; <a target=_blank href="' + entry.link[0].href + '">' + title + '</a>';
       //console.log(date);
       //console.log(formatted);
       //console.log('---');
