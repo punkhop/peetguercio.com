@@ -69,7 +69,9 @@ a:active,
 a:hover,
 a:focus {
     outline: 0;
-    //background: transparent;
+    /*
+    background: transparent;
+    */
     color: #35bdf6 !important;
     text-decoration: none;
 }
@@ -274,8 +276,8 @@ page-head section
     display: inline-block;
     vertical-align: baseline;
     zoom: 1;
-    *display: inline;
-    *vertical-align: auto;
+    display: inline;
+    vertical-align: auto;
     position: relative;
     padding: 0 20px;
     font-size: 22px;
