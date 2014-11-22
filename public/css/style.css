@@ -227,7 +227,7 @@ page-head section
 .about_bg_img {
     background-color: transparent;
     background-image: url(../img/Laugh-Factory-background.jpg);
-    background-position: 50% -40px;
+    background-position: 50% center;
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 0;
