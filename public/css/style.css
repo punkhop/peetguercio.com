@@ -260,6 +260,7 @@ page-head section
     display: inline-block;
     text-align: center;
     margin-right: 25px;
+    margin-bottom: 5px;
 }
 
 .certificate_list > li:last-child {
@@ -302,7 +303,6 @@ page-head section
     .fancy h4:after {
         left: 100%;
     }
-
 }
 
 
