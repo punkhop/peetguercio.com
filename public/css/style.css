@@ -424,12 +424,20 @@ a {
 .live_bg_img {
     background-color: black;
     background-image: url(../img/nerdbackground2-cropped.jpg);
-    background-position: bottom right;
+    background-position: top right;
     background-repeat: no-repeat;
     background-size: 50%;
     position: relative;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+@media (min-width: 1100px) {
+    .live_bg_img {        
+        background-size: auto 125%;
+        background-position-x: 86%;
+    }
+
 }
 
 .live_bg_img:before, .live_bg_img:after {
