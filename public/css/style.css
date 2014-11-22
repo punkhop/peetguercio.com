@@ -227,7 +227,7 @@ page-head section
 .about_bg_img {
     background-color: transparent;
     background-image: url(../img/Laugh-Factory-background.jpg);
-    background-position: 50% -40px;
+    background-position: 50% center;
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 0;
@@ -260,6 +260,7 @@ page-head section
     display: inline-block;
     text-align: center;
     margin-right: 25px;
+    margin-bottom: 5px;
 }
 
 .certificate_list > li:last-child {
@@ -270,6 +271,7 @@ page-head section
     position: relative;
     overflow: hidden;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .fancy h4 {
@@ -284,22 +286,26 @@ page-head section
     color: #000000;
 }
 
-.fancy h4:before, .fancy h4:after {
+@media screen and (min-width: 500px) {
+    .fancy h4:before, .fancy h4:after {
     content: '';
     display: block;
-    width: 1000px;
+    width: 175px;
     position: absolute;
     top: 0.73em;
     border-top: 1px solid #000000;
+    }
+
+    .fancy h4:before {
+        right: 100%;
+    }
+
+    .fancy h4:after {
+        left: 100%;
+    }
 }
 
-.fancy h4:before {
-    right: 100%;
-}
 
-.fancy h4:after {
-    left: 100%;
-}
 
 /**********section heading**************/
 
@@ -418,13 +424,20 @@ a {
 .live_bg_img {
     background-color: black;
     background-image: url(../img/nerdbackground2-cropped.jpg);
-    background-position: bottom right;
+    background-position: top right;
     background-repeat: no-repeat;
     background-size: 50%;
-    padding-bottom: 0;
-    padding-top: 0;
     position: relative;
     padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@media (min-width: 1100px) {
+    .live_bg_img {        
+        background-size: auto 125%;
+        background-position-x: 86%;
+    }
+
 }
 
 .live_bg_img:before, .live_bg_img:after {
@@ -443,6 +456,11 @@ a {
 
 .arrow_right {
     font-size: 16px;
+}
+
+.peachykeen {
+    display: block;
+    text-align: center;
 }
 
 /***************contact*******************/
