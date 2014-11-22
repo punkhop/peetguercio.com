@@ -270,6 +270,7 @@ page-head section
     position: relative;
     overflow: hidden;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .fancy h4 {
@@ -284,22 +285,27 @@ page-head section
     color: #000000;
 }
 
-.fancy h4:before, .fancy h4:after {
+@media screen and (min-width: 500px) {
+    .fancy h4:before, .fancy h4:after {
     content: '';
     display: block;
-    width: 1000px;
+    width: 175px;
     position: absolute;
     top: 0.73em;
     border-top: 1px solid #000000;
+    }
+
+    .fancy h4:before {
+        right: 100%;
+    }
+
+    .fancy h4:after {
+        left: 100%;
+    }
+
 }
 
-.fancy h4:before {
-    right: 100%;
-}
 
-.fancy h4:after {
-    left: 100%;
-}
 
 /**********section heading**************/
 
