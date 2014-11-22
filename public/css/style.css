@@ -427,10 +427,9 @@ a {
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 50%;
-    padding-bottom: 0;
-    padding-top: 0;
     position: relative;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .live_bg_img:before, .live_bg_img:after {
@@ -449,6 +448,11 @@ a {
 
 .arrow_right {
     font-size: 16px;
+}
+
+.peachykeen {
+    display: block;
+    text-align: center;
 }
 
 /***************contact*******************/
