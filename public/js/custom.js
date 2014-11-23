@@ -58,13 +58,29 @@ $(function() {
 
 
 /*********** BIG VIDEO **********/
+var resizeVideo = function () {
+  var $mainVideo = $('.main_video');
+  var $masthead = $('.masthead');
+  var $nav = $('#navigation');
+  var videoHeight = window.innerHeight - $masthead[0].offsetHeight - $nav.height();
+  
+  $mainVideo.css("height", videoHeight);
+  $('.videoBG').css("height", videoHeight);
+  $('.videoBG_wrapper').css("height", videoHeight);
+}
+
 $(function() {
+  resizeVideo();
   opts ={
     webm:'video.webm',
     scale:true,
     zIndex:0
   };
   var videoBG = $('.main_video').videoBG(opts);
+
+  $(window).resize(function () {
+    resizeVideo();
+  });
 });
 
 /* ==============================================
