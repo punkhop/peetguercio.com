@@ -133,8 +133,6 @@ a:focus {
 
 .main_video {
     width: 100%;
-    height: auto;
-    float: left;
 }
 
 .videoBG, .videoBG_wrapper {
@@ -663,6 +661,21 @@ a {
     .about_bg_img {
         background-position: 63% 0px;
         min-height: 390px;
+    }
+
+    .about_bg_img {
+        position: relative;
+    }
+
+    .about_bg_img:first-child:before {
+        background: rgba(0, 0, 0, 0.5);
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
     }
 }
 
