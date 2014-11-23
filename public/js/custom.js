@@ -57,7 +57,7 @@ $(function() {
 });
 
 
-/*********** BIG VIDEO **********/
+/*********** BIG VIDEO ***********/
 var resizeVideo = function () {
   var $mainVideo = $('.main_video');
   var $masthead = $('.masthead');
