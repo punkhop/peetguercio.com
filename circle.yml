@@ -1,5 +1,5 @@
 deployment:
   master:
     branch: master
-      commands:
-        - make deploy
+    commands:
+      - make deploy
