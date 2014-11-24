@@ -590,6 +590,7 @@ a {
 
     #navigation {
         top: 0;
+        position: fixed;
     }
 
     .masthead {
