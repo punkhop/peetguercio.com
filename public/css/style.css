@@ -588,6 +588,10 @@ a {
         font-size: 18px;
     }
 
+    body {
+        padding-top: 75px;
+    }
+
     .mar_mob_10px {
         margin-bottom: 10px;
     }
@@ -607,7 +611,7 @@ a {
     }
 
     #home {
-        height: 200px;
+        display: none;
     }
 
     .navbar-default .navbar-brand {
