@@ -163,6 +163,13 @@ bootstrap navbar overrides
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 }
 
+#logos {
+  background:url(../img/pg-bracket-logo.png) no-repeat top left;
+  width: 69px;
+  height: 52px;
+  display: none;
+}
+
 .navbar {
     margin-bottom: 0px;
 }
@@ -212,7 +219,8 @@ bootstrap navbar overrides
     font-size: 32px;
     font-family: "Lato", sans-serif,"Helvetica Neue",Helvetica !important;
     margin-top: 12px;
-    margin-left: 0px;
+    margin-left: 15px !important;
+    padding: 0;
 }
 
 .navbar-brand:hover {
@@ -602,7 +610,18 @@ a {
     }
 
     .navbar-default .navbar-brand {
-        margin-left: 10px;
+        margin-top: 12px;
+        margin-left: 20px !important;
+        margin-bottom: 12px;
+    }
+
+    .navbar-toggle {
+        margin-top: 21px;
+        margin-right: 20px;
+    }
+
+    #logos {
+        display: block;
     }
 
     .navbar-default .navbar-nav > li > a {
@@ -678,11 +697,4 @@ a {
         bottom: 0;
         right: 0;
     }
-}
-
-#logos {
-  background:url(../img/pg-bracket-logo.png) no-repeat top left;
-  width: 69px;
-  height: 52px;
-  display: none;
 }
