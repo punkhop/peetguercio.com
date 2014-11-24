@@ -479,6 +479,10 @@ a {
     line-height: 34px;
 }
 
+.form-inline .form-group {
+    margin-bottom: 10px;
+}
+
 
 /*******/
 
