@@ -1,14 +1,21 @@
-google.setOnLoadCallback(getMyFeed);
-var myService;
-var feedUrl = "https://www.google.com/calendar/feeds/g27.net_9ht2e4uhfh602mnen6psa6mun0%40group.calendar.google.com/public/full?" +
-              "max-results=10&orderby=starttime&sortorder=ascending&futureevents=true&singleevents=true";
-function setupMyService() {
-  myService = new google.gdata.calendar.CalendarService('gdata-js-client-samples-simple');
-}
+// this function is called from index.html script tag 'https://apis.google.com/js/client.js?onload=calendar_go'
+function calendar_go() {
+  gapi.client.setApiKey("AIzaSyBtH4ZNPsAfNFCFeznfp98TfajpPIx7gEM");
+  gapi.client.load('calendar', 'v3', function() {
+    var calendarId = 'g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com';
+    // "max-results=10&orderby=starttime&sortorder=ascending&futureevents=true&singleevents=true";
+    var request = gapi.client.calendar.events.list({
+      calendarId: calendarId,
+      maxResults: 10,
+      orderBy: 'startTime',
+      singleEvents: true,
+      timeMin: (new Date()).toISOString(),
+    });
 
-function getMyFeed() {
-  setupMyService();
-  myService.getEventsFeed(feedUrl, handleMyFeed, handleError);
+    request.execute(function(res) {
+      handleMyFeed(res.result.items);
+    });
+  });
 }
 
 function zeroPad(n,length){
@@ -17,18 +24,15 @@ function zeroPad(n,length){
   return s;
 }
 
-function handleMyFeed(result) {
+function handleMyFeed(items) {
   // get all calendar entries
-  var entries = result.feed.entry;
-  for (var i = 0; i < entries.length; i++) {
+  for (var i = 0; i < items.length; i++) {
       // format with date and title
-      var entry = entries[i];
-      var date = new Date(entry.getTimes()[0].startTime);
-      var title = entry.getTitle().getText();
-      var formatted = zeroPad((date.getMonth()+1),2) + '/' + zeroPad(date.getDate(),2) + ' &nbsp;-&nbsp; <a target=_blank href="' + entry.link[0].href + '">' + title + '</a>';
-      //console.log(date);
-      //console.log(formatted);
-      //console.log('---');
+      var entry = items[i];
+      var date = new Date(entry.start.dateTime);
+      var title = entry.summary;
+      var link = entry.htmlLink;
+      var formatted = zeroPad((date.getMonth()+1),2) + '/' + zeroPad(date.getDate(),2) + '/' + date.getFullYear() + ' &nbsp;-&nbsp; <a target=_blank href="' + link + '">' + title + '</a>';
 
       // add to UI.
       $('#shows').append('<h4>' + formatted + '</h4>')
