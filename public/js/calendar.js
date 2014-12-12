@@ -25,18 +25,16 @@ function zeroPad(n,length){
 }
 
 function handleMyFeed(items) {
-  // get all calendar entries
-  for (var i = 0; i < items.length; i++) {
-      // format with date and title
-      var entry = items[i];
-      var date = new Date(entry.start.dateTime);
-      var title = entry.summary;
-      var link = entry.htmlLink;
-      var formatted = zeroPad((date.getMonth()+1),2) + '/' + zeroPad(date.getDate(),2) + '/' + date.getFullYear() + ' &nbsp;-&nbsp; <a target=_blank href="' + link + '">' + title + '</a>';
+  items.forEach(function(entry){
+    // format with date and title
+    var date = new Date(entry.start.dateTime);
+    var title = entry.summary;
+    var link = entry.htmlLink;
+    var formatted = zeroPad((date.getMonth()+1),2) + '/' + zeroPad(date.getDate(),2) + ' &nbsp;-&nbsp; <a target=_blank href="' + link + '">' + title + '</a>';
 
-      // add to UI.
-      $('#shows').append('<h4>' + formatted + '</h4>')
-    }
+    // add to UI.
+    $('#shows').append('<h4>' + formatted + '</h4>')
+  });
   }
 
 function handleError(err) {
