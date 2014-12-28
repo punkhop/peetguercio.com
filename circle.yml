@@ -1,6 +1,6 @@
 test:
   override:
-    - echo yes
+    - echo No tests at this time.
 
 deployment:
   master:
