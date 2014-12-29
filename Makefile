@@ -3,3 +3,7 @@ deploy:
 
 serve:
 	cd public && ruby -run -ehttpd . -p4000
+
+generate-invalidation-string:
+	@cd public && find . | sed 's/\.//' | pbcopy
+	@echo Copied to clipboard.
