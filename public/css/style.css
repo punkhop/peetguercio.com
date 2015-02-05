@@ -440,7 +440,7 @@ a {
 }
 
 @media (min-width: 1100px) {
-    .live_bg_img {        
+    .live_bg_img {
         background-size: auto 125%;
         background-position-x: 86%;
     }
@@ -706,4 +706,14 @@ a {
         bottom: 0;
         right: 0;
     }
+}
+
+#laugh_together {
+  color: rgba(255,255,255,1);
+  text-decoration: normal;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
 }

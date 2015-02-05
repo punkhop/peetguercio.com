@@ -108,3 +108,9 @@ $(document).ready(function() {
 /* ==============================================
 Scroll animations
 =============================================== */
+$(document).ready(function() {
+  $('.wow').css('visibility', 'inherit');
+  new WOW({
+    offset: 200
+  }).init();
+});
