@@ -63,7 +63,7 @@ var resizeVideo = function () {
   var $masthead = $('.masthead');
   var $nav = $('#navigation');
   var videoHeight = window.innerHeight - $masthead[0].offsetHeight - $nav.height();
-  
+
   $mainVideo.css("height", videoHeight);
   $('.videoBG').css("height", videoHeight);
   $('.videoBG_wrapper').css("height", videoHeight);
@@ -108,10 +108,9 @@ $(document).ready(function() {
 /* ==============================================
 Scroll animations
 =============================================== */
-
-// DISABLED FOR NOW UNTIL THEY WORK WIH STICKY
-/*
-window.sr = new scrollReveal({
-  reset: true
+$(document).ready(function() {
+  $('.wow').css('visibility', 'inherit');
+  new WOW({
+    offset: 150
+  }).init();
 });
-*/
