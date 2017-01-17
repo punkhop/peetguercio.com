@@ -21,7 +21,7 @@ $(document).ready(function(){
 	    {
 		  animateClass: 'animated',
 		  mobile: false,
-		  offset: 50
+		  offset: 100
 		}
 	);
 	wow.init();
