@@ -34,7 +34,7 @@ function handleMyFeed(items) {
     var formatted = zeroPad((date.getMonth()+1),2) + '/' + zeroPad(date.getDate(),2) +  ' &nbsp;-&nbsp; ' + time +  '&nbsp; - &nbsp; <a target=_blank href="' + link + '">' + title + '</a>';
 
     // add to UI.
-    $('#shows').append('<h4>' + formatted + '</h4>')
+    $('.events-upcoming').append('<h4>' + formatted + '</h4>')
   });
   }
 

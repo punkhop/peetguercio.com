@@ -1,10 +1,10 @@
 /* this is my custom CSS */
-@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 * {
 	margin: 0;
 	padding: 0;
 	outline: none !important;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 	margin: 0;
@@ -14,14 +14,14 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 .row {
 	margin-left: 0;
 	margin-right: 0;
 }
 body, html {
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Lato', sans-serif;
 	line-height: 1;
 	height: 100%;
 }
@@ -105,243 +105,12 @@ input, select, textarea, button {
 	border: none !important;
 }
 /***************************** Default CSS Ends Here *****************************/
-.cd-section {
-	min-height: 100%;
-	position: relative;
-}
-@media only screen and (min-width: 768px) {
-.cd-section h1 {
-	font-size: 30px;
-	font-size: 1.875rem;
-}
-.cd-section p {
-	font-size: 20px;
-	font-size: 1.25rem;
-	line-height: 2;
-}
-}
-/* No Touch devices */
-.cd-nav-trigger {
-	display: none;
-}
-.no-touch #cd-vertical-nav {
-	position: fixed;
-	right: 40px;
-	top: 50%;
-	bottom: auto;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	z-index: 1;
-}
-.no-touch #cd-vertical-nav li {
-	text-align: right;
-}
-.no-touch #cd-vertical-nav a {
-	display: inline-block;
-	/* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers */
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-.no-touch #cd-vertical-nav a:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-.no-touch #cd-vertical-nav a span {
-	float: right;
-	display: inline-block;
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6);
-	-ms-transform: scale(0.6);
-	-o-transform: scale(0.6);
-	transform: scale(0.6);
-}
-.no-touch #cd-vertical-nav a:hover span {
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	-o-transform: scale(1);
-	transform: scale(1);
-}
-.no-touch #cd-vertical-nav a:hover .cd-label {
-	opacity: 1;
-}
-.no-touch #cd-vertical-nav a.is-selected .cd-dot {
-	background-color: white;
-}
-.no-touch #cd-vertical-nav .cd-dot {
-	position: relative;
-	/* we set a top value in order to align the dot with the label. If you change label's font, you may need to change this top value*/
-	top: 8px;
-	height: 12px;
-	width: 12px;
-	border-radius: 50%;
-	background-color: #999;
-	-webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
-	-moz-transition: -moz-transform 0.2s, background-color 0.5s;
-	transition: transform 0.2s, background-color 0.5s;
-	-webkit-transform-origin: 50% 50%;
-	-moz-transform-origin: 50% 50%;
-	-ms-transform-origin: 50% 50%;
-	-o-transform-origin: 50% 50%;
-	transform-origin: 50% 50%;
-}
-.no-touch #cd-vertical-nav .cd-label {
-	position: relative;
-	margin-right: 10px;
-	padding: .4em .5em;
-	color: white;
-	font-size: 14px;
-	font-size: 0.875rem;
-	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
-	-moz-transition: -moz-transform 0.2s, opacity 0.2s;
-	transition: transform 0.2s, opacity 0.2s;
-	opacity: 0;
-	-webkit-transform-origin: 100% 50%;
-	-moz-transform-origin: 100% 50%;
-	-ms-transform-origin: 100% 50%;
-	-o-transform-origin: 100% 50%;
-	transform-origin: 100% 50%;
-}
-/* Touch devices */
-.touch .cd-nav-trigger {
-	display: block;
-	z-index: 2;
-	position: fixed;
-	bottom: 30px;
-	right: 5%;
-	height: 44px;
-	width: 44px;
-	border-radius: 0.25em;
-	background: rgba(255, 255, 255, 0.9);
-}
-.touch .cd-nav-trigger span {
-	position: absolute;
-	height: 4px;
-	width: 4px;
-	background-color: #3e3947;
-	border-radius: 50%;
-	left: 50%;
-	top: 50%;
-	bottom: auto;
-	right: auto;
-	-webkit-transform: translateX(-50%) translateY(-50%);
-	-moz-transform: translateX(-50%) translateY(-50%);
-	-ms-transform: translateX(-50%) translateY(-50%);
-	-o-transform: translateX(-50%) translateY(-50%);
-	transform: translateX(-50%) translateY(-50%);
-}
-.touch .cd-nav-trigger span::before, .touch .cd-nav-trigger span::after {
-	content: '';
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	background-color: inherit;
-	border-radius: inherit;
-}
-.touch .cd-nav-trigger span::before {
-	top: -9px;
-}
-.touch .cd-nav-trigger span::after {
-	bottom: -9px;
-}
-.touch #cd-vertical-nav {
-	position: fixed;
-	z-index: 1;
-	right: 5%;
-	bottom: 30px;
-	width: 90%;
-	max-width: 400px;
-	max-height: 90%;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	-webkit-transform-origin: right bottom;
-	-moz-transform-origin: right bottom;
-	-ms-transform-origin: right bottom;
-	-o-transform-origin: right bottom;
-	transform-origin: right bottom;
-	-webkit-transform: scale(0);
-	-moz-transform: scale(0);
-	-ms-transform: scale(0);
-	-o-transform: scale(0);
-	transform: scale(0);
-	-webkit-transition-property: -webkit-transform;
-	-moz-transition-property: -moz-transform;
-	transition-property: transform;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	border-radius: 0.25em;
-	background-color: rgba(255, 255, 255, 0.9);
-}
-.touch #cd-vertical-nav a {
-	display: block;
-	padding: 1em;
-	border-bottom: 1px solid rgba(62, 57, 71, 0.1);
-}
-.touch #cd-vertical-nav a span:first-child {
-	display: none;
-}
-.touch #cd-vertical-nav a.is-selected span:last-child {
-	color: #d88683;
-}
-.touch #cd-vertical-nav.open {
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-ms-transform: scale(1);
-	-o-transform: scale(1);
-	transform: scale(1);
-}
-.touch #cd-vertical-nav.open + .cd-nav-trigger {
-	background-color: transparent;
-}
-.touch #cd-vertical-nav.open + .cd-nav-trigger span {
-	background-color: rgba(62, 57, 71, 0);
-}
-.touch #cd-vertical-nav.open + .cd-nav-trigger span::before, .touch #cd-vertical-nav.open + .cd-nav-trigger span::after {
-	background-color: #3e3947;
-	height: 3px;
-	width: 20px;
-	border-radius: 0;
-	left: -8px;
-}
-.touch #cd-vertical-nav.open + .cd-nav-trigger span::before {
-	-webkit-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
-	top: 1px;
-}
-.touch #cd-vertical-nav.open + .cd-nav-trigger span::after {
-	-webkit-transform: rotate(135deg);
-	-moz-transform: rotate(135deg);
-	-ms-transform: rotate(135deg);
-	-o-transform: rotate(135deg);
-	transform: rotate(135deg);
-	bottom: 0;
-}
-.touch #cd-vertical-nav li:last-child a {
-	border-bottom: none;
-}
- @media only screen and (min-width: 768px) {
-.touch .cd-nav-trigger, .touch #cd-vertical-nav {
-	bottom: 40px;
-}
-}
-/************************Sticky / Fixed Navigation CSS Ends Here************************/
 .no-video #section1 .poster, .touch #section1 .poster {
 	display: block !important;
 }
 #section1 {
 	position: relative;
-	width: 100%;
 	overflow: hidden;
-	max-width: 100% !important;
 }
 .no-video #section1 video, .touch #section1 video {
 	display: none;
@@ -421,20 +190,19 @@ input, select, textarea, button {
 	position: relative;
 }
 #section2 h2 {
-	background-color: rgba(0, 0, 0, 0.8);
-	color: #23d952;
+	color: #FFF;
+	font-weight: 600;
 	font-size: 45px;
-	padding: 10px;
+	padding: 10px 0;
 	margin-top: 50px;
 	text-transform: uppercase;
 }
 #section2 p {
-	background-color: rgba(0, 0, 0, 0.8);
 	color: #FFF;
 	display: inline;
 	font-size: 22px;
-	padding: 2px 10px;
-	line-height: 45px;
+	padding: 15px 0;
+	line-height: 35px;
 	position: relative;
 }
 /***************************About Us Section CSS Ends Here*********************/
@@ -725,11 +493,14 @@ input, select, textarea, button {
 	right: 0;
 	display: block;
 	margin: 0 auto;
+	min-height: 100%;
+	max-height: 100%;
+	position: relative;
 }
 .sbt {
 	position: absolute;
 	display: block;
-	bottom: 180px;
+	bottom: 320px;
 }
 .fade-into-view {
 	/* Transition */
@@ -775,4 +546,162 @@ input, select, textarea, button {
 }
 .carousel, .carousel-inner, .carousel .carousel-inner .item {
 	height: 100vh;
+}
+#section1, #section2, #section3, #section4, #section5 {
+	height: 100vh !important;
+}
+.pagination2 {
+	position: fixed;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.4em;
+	z-index: 10;
+}
+.pagination2 a {
+	display: block;
+	height: 20px;
+	margin-bottom: 5px;
+	color: white;
+	position: relative;
+	padding: 4px;
+}
+.pagination2 a.active:after {
+	box-shadow: inset 0 0 0 5px;
+}
+.pagination2 a .hover-text {
+	position: absolute;
+	right: 15px;
+	top: 7px;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
+	padding-right: 15px;
+}
+.pagination2 a:hover .hover-text {
+	opacity: 1;
+}
+.pagination2 a:after {
+	-webkit-transition: box-shadow 0.5s ease;
+	transition: box-shadow 0.5s ease;
+	width: 10px;
+	height: 10px;
+	display: block;
+	border-radius: 50%;
+	background: #999;
+	content: '';
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 4px;
+	bottom: 0;
+}
+.social-corner {
+	position: absolute;
+	top: 18px;
+	right: 40px;
+}
+.social-corner iframe:first-child {
+	margin-right: 3px;
+}
+.vertical-center p.cta {
+	margin-top: 5px;
+}
+.vertical-center a:link, .vertical-center a:visited {
+	color: white;
+	text-decoration: none;
+	font-size: 0.6em;
+}
+.vertical-center a:hover {
+	text-decoration: underline;
+}
+.arrow {
+	position: relative;
+	padding-right: 15px;
+}
+.arrow:before, .arrow:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 7px;
+	width: 2px;
+	height: 12px;
+	background: white;
+}
+.arrow:before {
+	transform: rotate(45deg);
+	top: 15px;
+}
+.arrow:after {
+	transform: rotate(-45deg);
+}
+ @media (max-width:800px) {
+h1 {
+	font-size: 15vw;
+}
+h2 {
+	font-size: 12vw;
+}
+.inner {
+	width: 70%;
+}
+}
+.events-upcoming{
+	margin-top:20px;
+}
+.events-upcoming li {
+	display: block;
+	margin: 5px 0;
+	float: left;
+	width: 100%;
+}
+.events-upcoming li span.date {
+	display: block;
+	width: 80px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #FFF;
+	padding: 14px 8px;
+	font-size: 16px;
+	line-height: 17px;
+	font-weight: bold;
+	height: 65px;
+	float: left;
+	text-transform:uppercase;
+	font-weight:600;
+}
+.events-upcoming li .ss-dd {
+	display: block;
+	text-align: left;
+	line-height: 23px;
+	background-color: rgba(0, 0, 0, 0.75);
+	color: #FFF;
+	padding: 10px;
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	height: 65px;
+	margin-left: 10px;
+}
+.events-upcoming li .ss-dd:hover{
+	background-color: rgba(0, 0, 0, 0.9);
+	cursor:pointer;
+	transition:all 0.7s;
+}
+.events-upcoming li .ss-dd span {
+	display: block;
+	font-weight: normal;
+}
+.events-upcoming li .location{
+	color:#CCC;
+	font-style:italic;
+	font-size:14px;
+}
+.events-upcoming li .ss-dd span.description {
+	display: none;
+}
+.pagination2 a .hover-text {
+	font-size: 14px;
+	right: 5px;
+	top: 3px;
 }

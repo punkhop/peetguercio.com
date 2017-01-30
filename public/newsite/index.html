@@ -6,11 +6,9 @@
 <title>:: PEET GUERCIO ::</title>
 <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 <link rel="stylesheet" href="css/bootstrap.min.css" />
-<!--<link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />-->
 <link rel="stylesheet" href="css/animate.min.css" />
 <link href="css/hover.css" rel="stylesheet" media="all" />
 <link href="css/lity.css" rel="stylesheet" />
-<link href="css/scrolling-nav.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/custom.css" />
 <link rel="stylesheet" href="css/screen.css" />
 </head>
@@ -22,16 +20,15 @@
   </center>
 </div>
 <!--se-pre-con-->
-<nav id="cd-vertical-nav" style="position:fixed;">
-  <ul>
-    <li> <a href="#section1" data-number="1" class="page-scroll"> <span class="cd-dot"></span> <span class="cd-label">Home</span> </a> </li>
-    <li> <a href="#section2" data-number="2" class="page-scroll"> <span class="cd-dot"></span> <span class="cd-label">About</span> </a> </li>
-    <li> <a href="#section3" data-number="3" class="page-scroll"> <span class="cd-dot"></span> <span class="cd-label">Videos</span> </a> </li>
-    <li> <a href="#section4" data-number="4" class="page-scroll"> <span class="cd-dot"></span> <span class="cd-label">Live Shows</span> </a> </li>
-    <li> <a href="#section5" data-number="5" class="page-scroll"> <span class="cd-dot"></span> <span class="cd-label">Contact</span> </a> </li>
-  </ul>
-</nav>
-<section id="section1" class="cd-section"> <span class="logo"> <a href="#section2" data-number="2" class="cd-scroll-down page-scroll"><img src="images/logo.png" alt="Logo" width="250" /></a> <a href="#section2" data-number="2" class="cd-scroll-down arrs page-scroll hvr-icon-hang" style="text-decoration:none; padding:0;">&nbsp;</a> </span>
+
+<ul class="pagination2">
+  <li><a class="active" href="#home"><span class="hover-text">Home</span></a></li>
+  <li><a class="" href="#about"><span class="hover-text">About</span></a></li>
+  <li><a class="" href="#videos"><span class="hover-text">Videos</span></a></li>
+  <li><a class="" href="#liveshows"><span class="hover-text" style="width:85px;">Live Shows</span></a></li>
+  <li><a class="" href="#contact"><span class="hover-text">Contact</span></a></li>
+</ul>
+<section id="section1" class="cd-section example-classname home" data-section-name="home"> <span class="logo"> <a href="#section2" class="scroll"><img src="images/logo.png" alt="Logo" width="250" /></a> </span>
   <video autoplay loop class="cd-section" id="bgvid">
     <source src="videos/video.mp4" type="video/mp4" />
     <source src="videos/video.ogv" type="video/ogv" />
@@ -42,31 +39,31 @@
 
 <!-----------------Header Section Code Ends Here------------------->
 
-<section id="section2" class="cd-section section fade-into-view">
-  <div class="container cd-section p-change">
-  <div class="sbt">
-    <div class="col-sm-8">
-      <h2>It’s pronounced GRR-see-oh.</h2>
-      <p>Peet is a comedian, host, actor, and writer in Los Angeles.<br />
-        He stars on the E! webseries Hashtaggers, and has appeared on Gotham Comedy Live,  MTV’s Throwback Thursday and Greatest Party Story Ever.</p>
+<section id="section2" class="cd-section section fade-into-view example-classname about" style="position:relative;" data-section-name="about">
+  <div class="container p-change">
+    <div class="sbt">
+      <div class="col-sm-8">
+        <h2>It’s pronounced GRR-see-oh.</h2>
+        <p>Peet is a comedian, host, actor, and writer in Los Angeles.<br />
+          He stars on the E! webseries Hashtaggers, and has appeared on Gotham Comedy Live,  MTV’s Throwback Thursday and Greatest Party Story Ever.</p>
+      </div>
+      <!--col-sm-8--> 
     </div>
-    <!--col-sm-8--> 
+    <div class="clearfix"></div>
+    <!--clearfix--> 
   </div>
-  <div class="clearfix"></div>
-  <!--clearfix-->
-  <div>
   <!--container-->
-  <center>
-    <span class="downer wow animated slideInUp"><a href="#section3" data-number="3"class="cd-scroll-down page-scroll oo">VIDEOS</a><br />
-    <a href="#section3" data-number="3" class="cd-scroll-down page-scroll hvr-icon-hang tt"></a></span>
-  </center>
   <div class="clearfix"></div>
   <!--clearfix--> 
+  <!--<div class="wow animated slideInRight" style="position:absolute; bottom:0; width:100%;"> <a href="https://instawidget.net/v/user/peetguercio" id="link-5b41681a8196fb6e6d68b5dc45d77e72a0f4f5ea680fac75cf23ee46e0a49e76">@peetguercio</a> 
+    <script src="https://instawidget.net/js/instawidget.js?u=5b41681a8196fb6e6d68b5dc45d77e72a0f4f5ea680fac75cf23ee46e0a49e76&width=100%"></script> </div>--> 
+  <br />
+  <br />
 </section>
 
 <!-----------------About Section Code Ends Here------------------->
 
-<section id="section3" class="cd-section">
+<section id="section3" class="cd-section example-classname videos" data-section-name="videos">
   <div class="container">
     <h2>Videos</h2>
     <em>&nbsp;</em>
@@ -98,23 +95,19 @@
     <div class="clearfix"></div>
     <!--clearfix--> 
   </div>
-  <!--container--> <br />
-  <center>
-    <span class="downer wow animated slideInUp" style="position:relative; bottom:0;"><a href="#section4" data-number="4"class="cd-scroll-down page-scroll oo">Lve Shows</a> <a href="#section4" data-number="4" class="cd-scroll-down page-scroll hvr-icon-hang tt"></a></span>
-  </center>
-  <div class="clearfix"></div>
-  <!--clearfix--> 
+  <!--container--> 
 </section>
 
 <!-----------------Videos Section Code Ends Here------------------->
 
-<section id="section4" class="cd-section">
+<section id="section4" class="cd-section example-classname liveshows" data-section-name="liveshows">
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-pause="false" data-interval="3500">
     <div class="carousel-inner" role="listbox">
       <div class="item active" id="one">
         <div class="container">
           <div class="col-sm-12">
-            <h2>Live Shows</h2>
+            <ul class="events-upcoming">
+            </ul>
           </div>
           <!--col-sm-12-->
           <div class="clearfix"></div>
@@ -126,7 +119,8 @@
       <div class="item" id="two">
         <div class="container">
           <div class="col-sm-12">
-            <h2>Live Shows</h2>
+            <ul class="events-upcoming">
+            </ul>
           </div>
           <!--col-sm-12-->
           <div class="clearfix"></div>
@@ -138,7 +132,8 @@
       <div class="item" id="three">
         <div class="container">
           <div class="col-sm-12">
-            <h2>Live Shows</h2>
+            <ul class="events-upcoming">
+            </ul>
           </div>
           <!--col-sm-12-->
           <div class="clearfix"></div>
@@ -150,7 +145,8 @@
       <div class="item cd-section" id="four">
         <div class="container">
           <div class="col-sm-12">
-            <h2>Live Shows</h2>
+            <ul class="events-upcoming">
+            </ul>
           </div>
           <!--col-sm-12-->
           <div class="clearfix"></div>
@@ -162,18 +158,12 @@
     </div>
     <!--carousel-inner--> 
   </div>
-  <!--carousel-->
-  <center>
-    <span class="downer lsss wow animated slideInUp"><a href="#section5" data-number="5"class="cd-scroll-down page-scroll oo">Contacts</a><br />
-    <a href="#section5" data-number="5" class="cd-scroll-down page-scroll hvr-icon-hang tt"></a></span>
-  </center>
-  <div class="clearfix"></div>
-  <!--clearfix--> 
+  <!--carousel--> 
 </section>
 
 <!-----------------Upcoming Shows Section Code Ends Here------------------->
 
-<section id="section5" class="cd-section">
+<section id="section5" class="cd-section example-classname contact" data-section-name="contact">
   <div class="container">
     <div class="col-sm-12">
       <h2>Contacts</h2>
@@ -201,7 +191,7 @@
         <!--col-sm-3-->
         <div class="col-sm-3">
           <center>
-            <a href="http://www.kpcomedy.com/COMEDIANS/Peet_Guercio-bio.html"><img src="images/logo2.png" alt="Image" class="img-responsive" /></a>
+            <a href="http://dpntalent.com/home/"><img src="images/logo2.png" alt="Image" class="img-responsive" /></a>
             <p>Commercial</p>
             <strong>Jennifer York</strong>
             <p>DPN Talent</p>
@@ -254,53 +244,64 @@
   </div>
   <!--container--><br />
   <br />
-  <!--<div class="wow animated slideInRight"> 
-    <a href="https://instawidget.net/v/user/peetguercio" id="link-5b41681a8196fb6e6d68b5dc45d77e72a0f4f5ea680fac75cf23ee46e0a49e76">@peetguercio</a> 
-    <script src="https://instawidget.net/js/instawidget.js?u=5b41681a8196fb6e6d68b5dc45d77e72a0f4f5ea680fac75cf23ee46e0a49e76&width=100%"></script> </div>--> 
-</section>
-
-<!-----------------Contact Section Code Ends Here------------------->
-
-<section class="live_show">
-  <div class="container">
-    <div class="col-md-4">
-      <h3 data-wow-offset='50' class="wow lightSpeedIn2">Join the mailing list for shows in your area.</h3>
-    </div>
-    <div class="col-md-8 col-sm-12">
-      <div class="row">
-        <form class="form-inline" role="form" action="https://peetguercio.us1.list-manage.com/subscribe/post?u=eb2baa50cef88a864174e2ddc&amp;id=76b3281a99" method="post" name="0.1_mc-embedded-subscribe-form" target="_blank" >
-          <div class="form-group col-sm-6">
-            <input class="form-control input-lg" type="email" placeholder="EMAIL" name='EMAIL' />
-          </div>
-          <div class="form-group col-sm-6">
-            <input class="form-control input-lg" type="text" placeholder="CITY" name='LCITY' />
-          </div>
-          <div class="form-group col-sm-6">
-            <input class="form-control input-lg" type="text" placeholder="STATE" name='LSTATE' />
-          </div>
-          <div class="form-group col-sm-6">
-            <button type="submit" class="btn btn-info btn-block btn-lg"> &nbsp; SEND &nbsp; </button>
-          </div>
-          <div style="position:absolute;left:-5000px">
-            <input type="text" name="b_eb2baa50cef88a864174e2ddc_76b3281a99" value="">
-          </div>
-        </form>
+  <div class="live_show">
+    <div class="container">
+      <div class="col-md-4">
+        <h3 data-wow-offset='50' class="wow lightSpeedIn2">Join the mailing list for shows in your area.</h3>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="row">
+          <form class="form-inline" role="form" action="https://peetguercio.us1.list-manage.com/subscribe/post?u=eb2baa50cef88a864174e2ddc&amp;id=76b3281a99" method="post" name="0.1_mc-embedded-subscribe-form" target="_blank" >
+            <div class="form-group col-sm-6">
+              <input class="form-control input-lg" type="email" placeholder="EMAIL" name='EMAIL' />
+            </div>
+            <div class="form-group col-sm-6">
+              <input class="form-control input-lg" type="text" placeholder="CITY" name='LCITY' />
+            </div>
+            <div class="form-group col-sm-6">
+              <input class="form-control input-lg" type="text" placeholder="STATE" name='LSTATE' />
+            </div>
+            <div class="form-group col-sm-6">
+              <button type="submit" class="btn btn-info btn-block btn-lg"> &nbsp; SEND &nbsp; </button>
+            </div>
+            <div style="position:absolute;left:-5000px">
+              <input type="text" name="b_eb2baa50cef88a864174e2ddc_76b3281a99" value="">
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-----------------Contact Section Code Ends Here-------------------> 
+
 <script src="js/jquery-3.1.1.slim.min.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/modernizr.js"></script> 
-<script src="js/calendar.js"></script> 
 <script src="js/fancybox.js"></script> 
 <script src="js/main.js"></script> 
 <script src="js/wow.js"></script> 
 <script src="js/lity.js"></script> 
-<script src="js/easing.min.js"></script> 
+<script src="js/jquery.scrollify.min.js"></script> 
 <script src="js/jquery-fadeintoview.js"></script> 
-<script src="https://apis.google.com/js/client.js?onload=calendar_go" type="text/javascript"></script> 
+<script src="js/format-google-calendar.js"></script> 
 <script>
+
+  formatGoogleCalendar.init({
+    calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com/events?key=AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk',
+	past: true,
+	upcoming: true,
+	sameDayTimes: false,
+	pastTopN: 20,
+	upcomingTopN: 6,
+	itemsTagName: 'li',
+	upcomingSelector: '.events-upcoming',
+	//pastSelector: '#events-past',
+	upcomingHeading: '<h2>Live Shows</h2>',
+	//pastHeading: '<h2>Past events</h2>',
+	format: ['*date*', '*summary*', '*description*', '*location*']
+  });
 $(window).scroll(function() {
   if($(window).scrollTop() > 250){
     $('#section2').removeClass('blurs');
@@ -311,56 +312,45 @@ $(window).scroll(function() {
 });
 /**********For Sticky / Fixed Navigation***************/
 
-jQuery(document).ready(function($){
-	var contentSections = $('.cd-section'),
-		navigationItems = $('#cd-vertical-nav a');
+$(function() {
+  $.scrollify({
+		section:".example-classname",
+    scrollbars:false,
+    before:function(i,panels) {
+      var ref = panels[i].attr("data-section-name");
 
-	updateNavigation();
-	$(window).on('scroll', function(){
-		updateNavigation();
+      $(".pagination2 .active").removeClass("active");
+
+      $(".pagination2").find("a[href=\"#" + ref + "\"]").addClass("active");
+    },
+    afterRender:function() {
+      var pagination2 = "<ul class=\"pagination2\">";
+      var activeClass = "";
+      $(".panel").each(function(i) {
+        activeClass = "";
+        if(i===0) {
+          activeClass = "active";
+        }
+        pagination2 += "<li><a class=\"" + activeClass + "\" href=\"#" + $(this).attr("data-section-name") + "\"><span class=\"hover-text\">" + $(this).attr("data-section-name").charAt(0).toUpperCase() + $(this).attr("data-section-name").slice(1) + "</span></a></li>";
+      });
+      pagination2 += "</ul>";
+      $(".home").append(pagination2);
+    }
+  });
+  $(".pagination2 a").on("click",$.scrollify.move);
+  $(".scroll,.scroll-btn").click(function(e) {
+		e.preventDefault();
+		$.scrollify.next();
 	});
-
-	//smooth scroll to the section
-	navigationItems.on('click', function(event){
-        event.preventDefault();
-        smoothScroll($(this.hash));
-    });
-    //smooth scroll to second section
-    $('.cd-scroll-down').on('click', function(event){
-        event.preventDefault();
-        smoothScroll($(this.hash));
-    });
-
-    //open-close navigation on touch devices
-    $('.touch .cd-nav-trigger').on('click', function(){
-    	$('.touch #cd-vertical-nav').toggleClass('open');
-  
-    });
-    //close navigation on touch devices when selectin an elemnt from the list
-    $('.touch #cd-vertical-nav a').on('click', function(){
-    	$('.touch #cd-vertical-nav').removeClass('open');
-    });
-
-	function updateNavigation() {
-		contentSections.each(function(){
-			$this = $(this);
-			var activeSection = $('#cd-vertical-nav a[href="#'+$this.attr('id')+'"]').data('number') - 1;
-			if ( ( $this.offset().top - $(window).height()/2 < $(window).scrollTop() ) && ( $this.offset().top + $this.height() - $(window).height()/2 > $(window).scrollTop() ) ) {
-				navigationItems.eq(activeSection).addClass('is-selected');
-			}else {
-				navigationItems.eq(activeSection).removeClass('is-selected');
-			}
-		});
-	}
-
-	function smoothScroll(target) {
-        $('body,html').animate(
-        	{'scrollTop':target.offset().top},
-        	1500, 'easeInOutExpo');
-		event.preventDefault();
-	}
 });
 
+$.scrollify({
+		section : "section",
+		//sectionName : "home",
+		//interstitialSection : "",
+		easing: "easeOutExpo",
+		scrollSpeed: 2000
+	});
 /******************COntact Sections Code Here******************/
 
 $('.bcrumbs li:nth-child(1)').click(function(){
@@ -387,11 +377,6 @@ $('.bcrumbs li:nth-child(5)').click(function(){
   $('.rep-sec').hide();
   $('.contact-sec').show();
 });
-/*$('#section3 a img').click(function(){
-	video = '<iframe style="width:100%; height:211px;" src="'+ $(this).attr('data-video') +'"></iframe>';
-	$(this).replaceWith(video);
-});
-*/
 /***************For Video Section on Top***************/
 
 $( document ).ready(function() {
@@ -465,7 +450,7 @@ vid.play();
         vid.pause();
         pauseButton.innerHTML = "Paused";
 	}
-})
+});
 </script>
 </body>
 </html>
