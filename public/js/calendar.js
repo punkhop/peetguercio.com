@@ -1,6 +1,6 @@
 // this function is called from index.html script tag 'https://apis.google.com/js/client.js?onload=calendar_go'
 function calendar_go() {
-  gapi.client.setApiKey("AIzaSyBtH4ZNPsAfNFCFeznfp98TfajpPIx7gEM");
+  gapi.client.setApiKey("AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk");
   gapi.client.load('calendar', 'v3', function() {
     var calendarId = 'g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com';
     // "max-results=10&orderby=starttime&sortorder=ascending&futureevents=true&singleevents=true";
