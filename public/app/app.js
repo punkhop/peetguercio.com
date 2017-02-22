@@ -2,7 +2,7 @@ var app = (function ($) {
     "use strict";
 
     var setBlur = function(name, from, to, length){        
-        $({blurRadius: from}).animate({blurRadius: to}, {
+        /*$({blurRadius: from}).animate({blurRadius: to}, {
             duration: length,
             easing: 'swing', // or "linear"
             // use jQuery UI or Easing plugin for more options
@@ -13,6 +13,7 @@ var app = (function ($) {
                 });
             }
         });
+        */
     },
         _isInitialized = false,
         init = function(){
