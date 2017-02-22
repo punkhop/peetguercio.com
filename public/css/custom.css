@@ -307,9 +307,10 @@ body.body-preload{
 
 #peetAbout {
     background-color:#000;
-    background: url(../images/about_peet.jpg) no-repeat center center;
-
-    font-size:1.5em;
+    background: url(../images/about_peet.jpg) no-repeat center center;    
+    text-shadow: -4px 4px 25px rgba(0, 0, 0, 1);
+    font-size:1.75em;
+    font-style:italic;  
 }
 
 #peetAbout h2{
@@ -317,6 +318,9 @@ body.body-preload{
     font-size:1.75em;
 }
 
+#peetAbout .bottom{
+    font-size:1.25em;
+}
 .blurs {
     /*-webkit-filter: blur(3px);
     -moz-filter: blur(3px);
@@ -585,10 +589,9 @@ body.body-preload{
 }
 
 #peetContact {
-    padding: 70px 0;
+    padding: 0;
     background-color: #ffc809;
-    color:#333;
-    height:2000px !important;
+    color:#333;    
 }
 
 #peetContact .insta{
@@ -678,6 +681,32 @@ body.body-preload{
     color:#333;
 }
 
-#peetContact .email a:hover{
-    text-decoration:underline;
+#peetContact .area{
+    font-size:1.25em;
+}
+
+#peetContact .pages{
+    font-size:1.5em;
+}
+#peetContact h3{
+    font-size:1.75em;
+}
+#peetContact .area h4{
+    font-size:1.5em;
+    color:#111;
+}
+
+#peetContact .area h5{
+    font-size:1.4em;
+    color:#111;
+}
+
+#peetContact .area a{
+    color:#333;
+    text-decoration:none;
+}
+
+#peetContact .area a:hover{    
+    color:#111;
+    font-weight:bold;
 }

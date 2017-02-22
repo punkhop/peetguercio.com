@@ -37,6 +37,37 @@ app.contacts = (function($){
                 };
 
                 $('.bcrumbs li .area').click(selectItem);                
+
+                // Extended disable function
+                jQuery.fn.extend({
+                    disable: function(state) {
+                        return this.each(function() {
+                            var $this = $(this);
+                            if($this.is('input, button, textarea, select'))
+                                this.disabled = state;
+                            else
+                                $this.toggleClass('disabled', state);
+                        });
+                    }
+                });
+
+                // Disabled on all:
+
+                $('.form-newsletter').submit(function(){
+                    if(!$(this).find(':invalid').length){
+                        //var response = grecaptcha.getResponse();
+
+                        //if(response.length)
+                        //{
+                            $(this).find('submit').disable(true);
+                            $('.form-newsletter').slideUp('fast',function(){
+                                $('.panel-newsletter-success').removeClass('hide').slideDown('fast');
+                            });
+                            return true;
+                        //}
+                    }
+                    return false;
+                });
             }
 
         };

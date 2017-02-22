@@ -6,6 +6,7 @@
 @media (min-width: 768px) and (max-width: 990px) {
 
 }
+
 @media (max-width: 767px) {
     #peetContact .email{        
         font-size:1.5em;
@@ -27,6 +28,10 @@
 }
 
 @media (max-width: 554px ){
+    #peetAbout{
+        background: url(../images/about_peet_small.jpg) no-repeat left center;
+    }
+    
     #peetAbout .top h2{
         font-size: 7vw;
         overflow:visible;
@@ -37,7 +42,7 @@
     }
     #peetAbout .bottom{
         font-size:4vw;
-        bottom: 10%;
+        bottom: 7%;
         position:absolute;
     }
 }
@@ -58,6 +63,6 @@
 @media (min-width:480px){
     #peetAbout .bottom, #peetContact .bottom{
         position:absolute;
-        bottom: 10%;
+        bottom: 7%;
     }
 }
