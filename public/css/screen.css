@@ -1,0 +1,68 @@
+/* this is my custom CSS */
+
+@media (min-width: 991px) and (max-width: 1200px) {
+
+}
+@media (min-width: 768px) and (max-width: 990px) {
+
+}
+
+@media (max-width: 767px) {
+    #peetContact .email{        
+        font-size:1.5em;
+    }
+
+    .events-upcoming li .date{
+        margin-top: 20px;
+        width:100% !important;
+        display:block;
+        padding:0px;
+        float:none !important; 
+    }
+    .events-upcoming li .ss-dd{
+        display: block;
+        margin: 5px 0;
+        float:none  !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 554px ){
+    #peetAbout{
+        background: url(../images/about_peet_small.jpg) no-repeat left center;
+    }
+    
+    #peetAbout .top h2{
+        font-size: 7vw;
+        overflow:visible;
+        word-wrap:normal;
+    }
+    #peetAbout .top h3{
+        font-size: 5vw;
+    }
+    #peetAbout .bottom{
+        font-size:4vw;
+        bottom: 7%;
+        position:absolute;
+    }
+}
+@media (max-width: 480px) {
+    #peetContact .email{        
+        font-size:1em;
+    }
+
+}
+
+@media (min-width:991px){
+    #peetAbout .top{
+        top:35%;
+
+    }   
+}
+
+@media (min-width:480px){
+    #peetAbout .bottom, #peetContact .bottom{
+        position:absolute;
+        bottom: 7%;
+    }
+}

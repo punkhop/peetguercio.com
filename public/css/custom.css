@@ -1,0 +1,712 @@
+/* GDR NEW */
+
+/* global */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+/*
+* {
+margin: 0;
+padding: 0;
+outline: none !important;
+font-family: 'Lato', sans-serif;
+}
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-size: 100%;
+vertical-align: baseline;
+background: transparent;
+font-family: 'Lato', sans-serif;
+}
+body, html {
+font-family: 'Lato', sans-serif;
+line-height: 1;    
+}
+*/
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color:#000;
+}
+
+body.body-preload{
+    overflow:hidden;
+}
+
+
+.marginTop {
+    margin-top:20px;
+}
+
+.no-padding-left {
+    padding-left: 0 !important;
+}
+.no-padding-right {
+    padding-right: 0 !important;
+}
+.no-padding {
+    padding: 0 !important;
+}
+
+.clearfix{
+    clear:both;
+}
+
+/* Backgrounds will cover all the section
+* --------------------------------------- */
+.fullpage-section, .section{
+    background-size: cover !important;
+    color: #FFF;
+}
+
+.slide{
+    background-size: cover;
+}
+
+/* loading screen */
+
+.se-pre-con {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #FFC809;
+    z-index: 200;
+}
+
+.se-pre-con .square{
+    border:0;
+    width:80px;
+    padding:0px;
+    position: absolute;
+    top: 75%;
+    margin-left: calc(50% - 40px);
+    margin-left: -webkit-calc(50% - 40px);
+    margin-left: -moz-calc(50% - 40px);
+    background:#FFC809;
+}
+
+.se-pre-con .spin {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border:dashed 5px #333;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+    from   {  -webkit-transform: rotate(0deg); }
+    to   {  -webkit-transform: rotate(360deg); }
+}
+
+.loading, .loading::before, .loading::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.3);    
+    border-left-color: rgba(64, 64, 64, 0.8);    
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+}
+.loading {
+    margin: -25px 0 0 -25px;
+    height: 50px;
+    width: 50px;    
+    -webkit-animation: animation-rotate 1000ms linear infinite;
+    -moz-animation: animation-rotate 1000ms linear infinite;
+    -o-animation: animation-rotate 1000ms linear infinite;
+    animation: animation-rotate 1000ms linear infinite;
+}
+.loading::before {
+    content: "";
+    margin: -23px 0 0 -23px;
+    height: 44px;
+    width: 44px;
+    -webkit-animation: animation-rotate 1000ms linear infinite;
+    -moz-animation: animation-rotate 1000ms linear infinite;
+    -o-animation: animation-rotate 1000ms linear infinite;
+    animation: animation-rotate 1000ms linear infinite;
+}
+.loading::after {
+    content: "";
+    margin: -29px 0 0 -29px;
+    height: 56px;
+    width: 56px;
+    -webkit-animation: animation-rotate 2000ms linear infinite;
+    -moz-animation: animation-rotate 2000ms linear infinite;
+    -o-animation: animation-rotate 2000ms linear infinite;
+    animation: animation-rotate 2000ms linear infinite;
+}
+@-webkit-keyframes animation-rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes animation-rotate {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-o-keyframes animation-rotate {
+    100% {
+        -o-transform: rotate(360deg);
+    }
+}
+@keyframes animation-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.hvr-icon-hang::before {
+    right: auto !important;
+}
+
+/* nav */
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+    /*background: #ffc809;*/
+    background: #ffc90d;
+    border:2px solid #333;    
+}
+
+#fp-nav ul li .fp-tooltip{
+    color:#CCC;    
+    font-family:'Lato', sans-serif;
+}
+.fp-scrollable{
+    /*overflow:visible !important;*/
+}
+
+/* home */
+
+.verticalTop .fp-tableCell{
+    vertical-align: top;
+}
+
+#peetHome{
+    overflow:hidden;
+}
+#bgvid{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top:0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-color: black; /* in case the video doesn't fit the whole page*/
+    background-image: /* our video */;
+    background-position: center center;
+    background-size: contain;
+    object-fit: cover; /*cover video background */
+    z-index:3;
+}
+
+.logo {
+    position: absolute;
+    z-index: 201;
+    left: 0;
+    right: 0;
+    top: auto;
+    margin: 0 auto;
+    display: block;
+    width: 250px;
+    bottom:35px;
+}
+
+/*#DIV_1*/
+.animatable {
+    -webkit-transition:all 500ms ease-out;
+    transition:all 500ms ease-out;
+}
+.logo.large, .logo.large img{
+    -webkit-transform:scale(.25);
+    transform:scale(.25);
+    opacity:0;
+}
+.logo .arrs {
+    display: none;
+    margin: 0 auto;
+    color: #FFF;
+    font-size: 25px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    width: 26px;
+}
+.logo:hover .arrs {
+    display: inline-block;
+    -webkit-animation-name: hvr-icon-hang-sink, hvr-icon-hang;
+    animation-name: hvr-icon-hang-sink, hvr-icon-hang;
+    -webkit-animation-duration: .3s, 1.5s;
+    animation-duration: .3s, 1.5s;
+    -webkit-animation-delay: 0s, .3s;
+    animation-delay: 0s, .3s;
+    -webkit-animation-timing-function: ease-out, ease-in-out;
+    animation-timing-function: ease-out, ease-in-out;
+    -webkit-animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: normal, alternate;
+    animation-direction: normal, alternate;
+}
+
+@keyframes animateLogo{
+    0%   {
+        background-position:-300px 0;
+    }    
+    100%  {
+        background-position:300px 0;
+    }
+}
+
+.logo.mask a::after{
+    content:'';
+    margin-left:-25px;
+    width:300px;
+    position: absolute;
+    pointer-events: none;
+    top:0; left:0; right:0; bottom: 0;    
+    background: radial-gradient(0 0,circle farthest-side, rgba(255,255,255,0) 90%,rgba(255,255,255,.8) 98%,rgba(255,255,255,0) 100%) no-repeat;
+    background: radial-gradient(circle farthest-side at 0 0, rgba(255,255,255,0) 90%,rgba(255,255,255,.8) 98%,rgba(255,255,255,0) 100%) no-repeat;
+    background-position: inherit; 
+    -webkit-mask: url('../images/logo.png') center no-repeat;
+    mask: url('#mask-firefox') center no-repeat;
+
+    animation-name: animateLogo;    
+    animation-duration: 4s;    
+    animation-iteration-count: infinite;
+}
+
+.logo.mask a{
+
+
+    /*background-position: 300px 0;*/
+    display:block;
+}
+
+/* asdf */
+
+.logo.se-pre-load{
+    position:absolute !important;
+    margin-top:9%;
+    bottom:auto;
+}
+
+/* about */
+
+#peetAbout {
+    background-color:#000;
+    background: url(../images/about_peet.jpg) no-repeat center center;    
+    text-shadow: -4px 4px 25px rgba(0, 0, 0, 1);
+    font-size:1.75em;
+    font-style:italic;  
+}
+
+#peetAbout h2{
+    text-transform:uppercase;
+    font-size:1.75em;
+}
+
+#peetAbout .bottom{
+    font-size:1.25em;
+}
+.blurs {
+    /*-webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);*/
+    background-color:#000;
+    opacity: 0.1;
+
+}
+
+/* videos */
+
+/***************************About Us Section CSS Ends Here*********************/
+#peetVideos {        
+    background-color: #ffc809;
+    padding: 0;
+}
+
+#peetVideos {
+    padding-bottom: 0px !important;
+}
+
+/* this is just like h2 */
+#peetVideos a.videos-link{
+    text-decoration:none;
+    color:#333;
+    font-size: 50px;
+    font-weight: bold;    
+    text-transform: uppercase;
+    display:inline-block;
+
+}
+
+#peetVideos a.videos-link:hover{
+    text-decoration:none;
+    color:#555;
+}
+
+#peetVideos em {
+    height: 2px;
+    display: inline-block;
+    width: 60px;
+    background-color: #333;
+    margin-top: 15px;
+}
+#peetVideos a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+#peetVideos a img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+#peetVideos a:hover{
+    border:0px;
+    text-decoration:none;
+}
+#peetVideos a img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+#peetVideos a.oo, #section3 a.tt {
+    overflow: visible;
+}
+
+/* live shows */
+
+#peetShows{
+
+}
+
+#peetShows .events{
+    margin-top:5%;
+}
+#peetShows .bg{
+    position:absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+}
+
+#peetShows .bg .fp-controlArrow{
+    display:none;
+}
+
+#peetShows {
+    background-size: cover;
+    position: relative;
+}
+#peetShows h2 {
+    font-size: 50px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#peetShows .boxes {
+    position: relative;
+    display: block;
+}
+
+.events-upcoming {
+    margin-top: 20px;
+    padding:0px;
+}
+.events-upcoming .item {
+    display: block;
+    margin: 5px 0;   
+}
+
+.events-upcoming .item .itemLink{
+    display:block;    
+}
+
+.events-upcoming .item .date {
+    /*display: block;
+    width: 80px;*/
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #FFF;
+    padding: 14px 8px;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: bold;
+    min-height: 65px;
+    float: left;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.events-upcoming .item .ss-dd {
+    /*display: block;*/
+    text-align: left;
+    line-height: 23px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #FFF;
+    padding: 10px;
+    /*float: left;*/
+    font-size: 16px;
+    font-weight: bold;
+    height: 65px;
+    margin-left: 10px;
+}
+
+.events-upcoming .summary{
+    width:100%;
+    height:20px;
+}
+.events-upcoming .item:hover .date{
+    background-color: rgba(32, 32, 32, 0.75);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.events-upcoming .item:hover .ss-dd{
+    background-color: rgba(32, 32, 32, 0.75);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.events-upcoming .item .ss-dd div {
+    display: block;
+    font-weight: normal;
+}
+.events-upcoming .item .location {
+    color: #CCC;
+    font-style: italic;
+    font-size: 14px;
+}
+.events-upcoming .item .ss-dd div.description {
+    display: none;
+}
+
+.events-upcoming .formatted-date-month-name{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-size:.75em;
+    margin-bottom:5px;
+}
+
+.events-upcoming .formatted-date-start-date{
+    display:block;
+    width:100%;
+    text-align:center;
+    font-size:1.25em;
+}
+
+#one {
+    background: url(../images/upcoming.png) no-repeat center top;
+    width: 100%;
+    background-size: cover;
+    padding: 70px 0;
+    min-height: 650px;
+}
+#two {
+    background: url(../images/upcoming2.png) no-repeat center top;
+    width: 100%;
+    background-size: cover;
+    height: 100%;
+    padding: 70px 0;
+    min-height: 650px;
+}
+#three {
+    background: url(../images/upcoming3.png) no-repeat center top;
+    width: 100%;
+    background-size: cover;
+    padding: 70px 0;
+    min-height: 650px;
+}
+#four {
+    background: url(../images/upcoming4.png) no-repeat center top;
+    width: 100%;
+    background-size: cover;
+    padding: 70px 0;
+    min-height: 650px;
+}
+
+
+/* contact */
+
+.social-corner {
+    position: absolute;
+    top: 18px;
+    right: 40px;
+}
+.social-corner iframe:first-child {
+    margin-right: 3px;
+}
+.vertical-center p.cta {
+    margin-top: 5px;
+}
+.vertical-center a:link, .vertical-center a:visited {
+    color: white;
+    text-decoration: none;
+    font-size: 0.6em;
+}
+.vertical-center a:hover {
+    text-decoration: underline;
+}
+.arrow {
+    position: relative;
+    padding-right: 15px;
+}
+.arrow:before, .arrow:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 2px;
+    height: 12px;
+    background: white;
+}
+.arrow:before {
+    transform: rotate(45deg);
+    top: 15px;
+}
+.arrow:after {
+    transform: rotate(-45deg);
+}
+
+#peetContact {
+    padding: 0;
+    background-color: #ffc809;
+    color:#333;    
+}
+
+#peetContact .insta{
+    position:absolute;
+    opacity:.3;
+    left:-200px;
+    -ms-transform: rotate(-10deg); /* IE 9 */
+    -webkit-transform: rotate(-10deg); /* Safari */
+    transform: rotate(-10deg);
+}
+.bcrumbs {
+    display: block;
+}
+.bcrumbs li {
+    display: inline-block;
+    padding: 0 5px;
+    color: #333;
+    font-size: 18px;
+}
+.bcrumbs li a {
+    font-weight: bold;
+    color: #333;
+}
+.bcrumbs li a:hover, .bcrumbs li a:active, .bcrumbs li a:focus, .bcrumbs li.active a, .bcrumbs a.active {
+    color: #FFF;
+    text-decoration: none;
+}
+#peetContact h2 {
+    font-size: 50px;
+    color: #333;
+    padding-top: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.sc-sec {
+    display: block;
+}
+.sc-sec a {
+    margin: 50px 20px;
+    text-decoration: none;
+}
+.rep-sec {
+    font-size: 15px;
+    display: block;
+}
+.rep-sec img {
+    padding-bottom: 10px;
+}
+.rep-sec a {
+    font-size: 17px;
+    color: #C63;
+}
+.contact-sec, .rep-sec, .newsletter-sec {
+    display: none;
+}
+.contact-sec .form input {
+    height: 40px;
+    margin-bottom: 15px;
+}
+.contact-sec .form textarea {
+    margin-bottom: 15px;
+    resize: none;
+}
+.live_show {    
+    display: block;
+    padding: 30px 0;
+    background-color: #f4c111;
+}
+.live_show h3 {
+    font-size: 25px;
+    padding-top: 15px;
+}
+.live_show input, .live_show button {
+    width: 100% !important;
+    margin: 5px 0;
+}
+
+#peetContact .contactHeader h2{
+    display:inline-block;
+}
+#peetContact .email{
+    font-size:2.5em;
+}
+
+#peetContact .email a{
+    text-decoration:none;
+    color:#333;
+}
+
+#peetContact .area{
+    font-size:1.25em;
+}
+
+#peetContact .pages{
+    font-size:1.5em;
+}
+#peetContact h3{
+    font-size:1.75em;
+}
+#peetContact .area h4{
+    font-size:1.5em;
+    color:#111;
+}
+
+#peetContact .area h5{
+    font-size:1.4em;
+    color:#111;
+}
+
+#peetContact .area a{
+    color:#333;
+    text-decoration:none;
+}
+
+#peetContact .area a:hover{    
+    color:#111;
+    font-weight:bold;
+}
