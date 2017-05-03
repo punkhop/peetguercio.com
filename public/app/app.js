@@ -1,7 +1,7 @@
-var app = (function ($) {
+var app = (function ($, svg4everybody) {
     "use strict";
 
-    var setBlur = function(name, from, to, length){        
+    var setBlur = function (name, from, to, length) {
         /*$({blurRadius: from}).animate({blurRadius: to}, {
             duration: length,
             easing: 'swing', // or "linear"
@@ -16,57 +16,60 @@ var app = (function ($) {
         */
     },
         _isInitialized = false,
-        init = function(){
-            if(!_isInitialized){ 
-                var support = { animations : Modernizr.cssanimations },
-                    container = document.getElementById( 'page-top' ),                    
-                    loader = new PathLoader( document.getElementById( 'ip-loader-circle' ) ),
-                    animEndEventNames = { 'WebkitAnimation' : 'webkitAnimationEnd', 'OAnimation' : 'oAnimationEnd', 'msAnimation' : 'MSAnimationEnd', 'animation' : 'animationend' },
+        init = function () {
+            if (!_isInitialized) {
+                // instantiate svg4everybody
+                svg4everybody();
+
+                var support = { animations: Modernizr.cssanimations },
+                    container = document.getElementById('page-top'),
+                    loader = new PathLoader(document.getElementById('ip-loader-circle')),
+                    animEndEventNames = { 'WebkitAnimation': 'webkitAnimationEnd', 'OAnimation': 'oAnimationEnd', 'msAnimation': 'MSAnimationEnd', 'animation': 'animationend' },
                     // animation end event name
-                    animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
+                    animEndEventName = animEndEventNames[Modernizr.prefixed('animation')];
 
                 function noscroll() {
-                    window.scrollTo( 0, 0 );
+                    window.scrollTo(0, 0);
                 };
 
                 function startLoading() {
                     // simulate loading something..
-                    var load = function(instance) {                        
-                        _isInitialized = true;                
+                    var load = function (instance) {
+                        _isInitialized = true;
 
                         instance.setProgress(0);
                         $('body').addClass('body-loading');
 
                         //fancybox.js init
                         $('.fancybox').fancybox({
-                            openEffect : 'none',
-                            closeEffect : 'none',
-                            prevEffect : 'none',
-                            nextEffect : 'none',
+                            openEffect: 'none',
+                            closeEffect: 'none',
+                            prevEffect: 'none',
+                            nextEffect: 'none',
 
-                            arrows : false,
-                            helpers : {
-                                media : {},
-                                buttons : {}
+                            arrows: false,
+                            helpers: {
+                                media: {},
+                                buttons: {}
                             }
                         });
 
                         instance.setProgress(5);
 
-                        var bodyTag = $("body");                   
+                        var bodyTag = $("body");
 
                         $('.fullpage').fullpage({
-                            scrollOverflow:true, 
+                            scrollOverflow: true,
                             //easing: "easeOutExpo",                    
                             navigation: true,
-                            bigSectionsDestination:'top',
+                            bigSectionsDestination: 'top',
                             navigationPosition: 'right',
-                            navigationTooltips: ['home', 'about','videos','live shows','colleges','contact'],
-                            anchors: ['home', 'about', 'videos', 'shows', 'colleges', 'contact'],                     
+                            navigationTooltips: ['home', 'about', 'videos', 'live shows', 'colleges', 'contact'],
+                            anchors: ['home', 'about', 'videos', 'shows', 'colleges', 'contact'],
                             //responsiveWidth:600,  
-                            scrollingSpeed:1500,                  
+                            scrollingSpeed: 1500,
                             menu: '#guercioMenu',
-                            recordHistory:false,
+                            recordHistory: false,
                             slidesNavigation: false,
                             afterRender: function () {
 
@@ -75,50 +78,50 @@ var app = (function ($) {
                         });*/
                                 var dir = 'r';
                                 setInterval(function () {
-                                    if($('.fp-section.active .fp-slide.active').index()===$('.fp-section.active .fp-slide').length-1){
+                                    if ($('.fp-section.active .fp-slide.active').index() === $('.fp-section.active .fp-slide').length - 1) {
                                         dir = 'l';
                                     }
-                                    else if ($('.fp-section.active .fp-slide.active').index()===0){
+                                    else if ($('.fp-section.active .fp-slide.active').index() === 0) {
                                         dir = 'r';
                                     }
 
-                                    if(dir === 'l'){
-                                        $.fn.fullpage.moveSlideLeft();    
+                                    if (dir === 'l') {
+                                        $.fn.fullpage.moveSlideLeft();
                                     }
-                                    else{
+                                    else {
                                         $.fn.fullpage.moveSlideRight();
                                     }
                                 }, 5000);
                             },
-                            onLeave (index, nextIndex, direction){
+                            onLeave(index, nextIndex, direction) {
                                 // if about
-                                if(nextIndex===2){
+                                if (nextIndex === 2) {
                                     //bodyTag.fadeIntoView("fadeIn", {item: 2-1});                                                   
                                     // want to fade in after the switch
-                                    setTimeout(function(){
-                                        $('#peetAbout').stop(true,true).removeClass('blurs',1000);      
-                                        setBlur('#peetAbout',3,0,500);
-                                    },500);
+                                    setTimeout(function () {
+                                        $('#peetAbout').stop(true, true).removeClass('blurs', 1000);
+                                        setBlur('#peetAbout', 3, 0, 500);
+                                    }, 500);
 
                                     //$('#aboutPeet').removeClass("fade-out-blur").addClass("fade-in-blur");     
                                 }
-                                else{
+                                else {
                                     //bodyTag.fadeIntoView("fadeOut", {item: 2-1});
                                     //$('#aboutPeet').removeClass("fade-in-blur").addClass("fade-out-blur");
-                                    $('#peetAbout').stop(true,true).addClass('blurs',1000);      
-                                    setBlur('#peetAbout',3,0,500);
+                                    $('#peetAbout').stop(true, true).addClass('blurs', 1000);
+                                    setBlur('#peetAbout', 3, 0, 500);
 
                                 }
                             }
-                        });  
+                        });
 
                         // lity specific stuff working with fullpage
-                        $(document).on('lity:open', function(event, instance) {
+                        $(document).on('lity:open', function (event, instance) {
                             $.fn.fullpage.setAllowScrolling(false);
                         });
 
 
-                        $(document).on('lity:close', function(event, instance) {
+                        $(document).on('lity:close', function (event, instance) {
                             $.fn.fullpage.setAllowScrolling(true);
                         });
 
@@ -127,18 +130,18 @@ var app = (function ($) {
                         //$( "#.logo" ).effect( "size", {to:{width:'auto',height:'auto'}}, 500, function(){} );)
 
                         // set initial blur
-                        setBlur('#peetAbout',0,3,0);
+                        setBlur('#peetAbout', 0, 3, 0);
 
-                        app.about.init().done(function(){
+                        app.about.init().done(function () {
                             instance.setProgress(30);
-                            app.contacts.init().done(function(){
+                            app.contacts.init().done(function () {
                                 instance.setProgress(40);
-                                app.shows.init().done(function(){
+                                app.shows.init().done(function () {
                                     instance.setProgress(50);
                                     $('.bigText').textfill({ maxFontPixels: 20 });
 
                                     // a little bit of a "hack" to get this to catch
-                                    $(window).resize(function(){
+                                    $(window).resize(function () {
                                         //$('.bigText').css('width', $('.bigText').width());
                                         //$('.bigText').css('height', $('.bigText').height());
 
@@ -148,53 +151,53 @@ var app = (function ($) {
                                         //$.fn.fullpage.reBuild(); 
                                     });
 
-                                    $('.logo.preLoad').removeClass('large',function(){                    
+                                    $('.logo.preLoad').removeClass('large', function () {
                                         $(window).load(function () {
                                             instance.setProgress(75);
                                             $('.logo.preLoad').removeClass('animatable');
-                                            setTimeout(function(){
+                                            setTimeout(function () {
                                                 instance.setProgress(100);
-                                                $("div.se-pre-con").fadeOut("fast");     
+                                                $("div.se-pre-con").fadeOut("fast");
                                                 // only do snazzy animation if you are on the home page
-                                                if($('.fp-section.active').index()===0){
-                                                    $('.logo').animate({bottom:'35px'},1250,'easeInOutExpo',function(){
+                                                if ($('.fp-section.active').index() === 0) {
+                                                    $('.logo').animate({ bottom: '35px' }, 1250, 'easeInOutExpo', function () {
                                                         $('.logo.postLoad').removeClass('hide');
-                                                        $('.logo.preLoad').hide();   
+                                                        $('.logo.preLoad').hide();
 
                                                     });
                                                 }
-                                                else{
+                                                else {
                                                     $('.logo.postLoad').removeClass('hide');
-                                                    $('.logo.preLoad').hide();  
+                                                    $('.logo.preLoad').hide();
                                                 }
 
                                                 $('body').removeClass('body-preload');
-                                                window.removeEventListener( 'scroll', noscroll );
+                                                window.removeEventListener('scroll', noscroll);
                                                 //$('.logo').css({'top': 'auto', 'bottom': '35px'});
 
-                                            },1000);
+                                            }, 1000);
                                         });
                                     });
                                 });
-                            }) ;
-                        });           
+                            });
+                        });
 
 
 
                     };
 
-                    loader.setProgressFn( load );
+                    loader.setProgressFn(load);
                 };
 
                 // disable scrolling
-                window.addEventListener( 'scroll', noscroll );
+                window.addEventListener('scroll', noscroll);
 
                 startLoading();
             }
         };
 
     return {
-        init:init
+        init: init
     };
 
-}($));
+}($, svg4everybody));
