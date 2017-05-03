@@ -5,9 +5,12 @@ app.about = (function(){
 
     var _isInitialized = false,
         init = function(){
+            var defer = $.Deferred();
             if(!_isInitialized){        
                 _isInitialized = true;        
             }
+
+            defer.resolve();
 
             /*$(window).scroll(function () {
                 if ($(window).scrollTop() > 250) {
@@ -16,7 +19,7 @@ app.about = (function(){
                     $('#aboutPeet').addClass('blurs');
                 }
             });*/        
-            
+            return defer.promise();
         };
 
     return{

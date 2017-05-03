@@ -6,6 +6,7 @@ app.contacts = (function($){
     var _isInitialized = false,
         _previousSelection = $('.bcrumbs li .social'),
         init = function(){
+            var defer = $.Deferred();
             if(!_isInitialized){        
                 _isInitialized = true;
 
@@ -59,17 +60,21 @@ app.contacts = (function($){
 
                         //if(response.length)
                         //{
-                            $(this).find('submit').disable(true);
-                            $('.form-newsletter').slideUp('fast',function(){
-                                $('.panel-newsletter-success').removeClass('hide').slideDown('fast');
-                            });
-                            return true;
+                        $(this).find('submit').disable(true);
+                        $('.form-newsletter').slideUp('fast',function(){
+                            $('.panel-newsletter-success').removeClass('hide').slideDown('fast');
+                        });
+                        return true;
                         //}
                     }
                     return false;
                 });
+                defer.resolve();
             }
-
+            else{
+                defer.resolve();
+            }
+            return defer.promise();
         };
 
     return{
