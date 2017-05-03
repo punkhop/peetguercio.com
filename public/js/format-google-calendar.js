@@ -146,7 +146,7 @@ var formatGoogleCalendar = (function() {
         }
 
         var dateFormatted = getFormattedDate(dateStart, dateEnd, moreDaysEvent, isAllDayEvent, dayNames),
-            output = '<' + tagName + ' class="item col-lg-12 col-sm-4"><a class="itemLink" href="' + result.htmlLink + '" target="_blank"><div class="row">',
+            output = '<' + tagName + ' class="item col-lg-12 col-sm-4"><a class="itemLink" href="' + result.htmlLink + '&ctz=America/Los_Angeles" target="_blank"><div class="row">',
             summary = result.summary || '',
             description = result.description || '',
             location = result.location || '',

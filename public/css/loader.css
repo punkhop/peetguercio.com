@@ -1,0 +1,56 @@
+.ip-loader .ip-inner{
+    border:0;
+    width:80px;
+    padding:0px;
+    position: absolute;
+    top: 75%;
+    margin-left: calc(50% - 40px);
+    margin-left: -webkit-calc(50% - 40px);
+    margin-left: -moz-calc(50% - 40px);
+    background:#FFC809;
+}
+.ip-loader svg path {
+	fill: none;
+	stroke-width: 6;
+}
+
+.ip-loader svg path.ip-loader-circlebg {	
+    stroke: #ffaa00;
+}
+
+.body-preload.body-loading .ip-loader svg path.ip-loader-circle {
+	transition: stroke-dashoffset 0.2s;
+	stroke: #ff7700;
+}
+
+.body-loaded .ip-logo,
+.body-loaded  .ip-loader {
+	opacity: 1;
+}
+
+.body-loaded .ip-logo {
+	transform-origin: 50% 0;
+	animation: animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoadedLogo {
+	to { 
+		transform: translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1); 
+	}
+}
+
+.body-loaded .ip-logo svg path {
+	transition: all 0.5s ease 0.3s;
+	fill: #fff;
+}
+
+.body-loaded .ip-loader {
+	animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animLoadedLoader {
+	to { 
+		opacity: 0; 
+		transform: translate3d(0,-100%,0) scale3d(0.3,0.3,1); 
+	}
+}
