@@ -154,31 +154,31 @@ var app = (function ($, svg4everybody) {
 
                                             //forcing fullPage.js to recalculate dimensions.
                                             //$.fn.fullpage.reBuild(); 
-                                        });
+                                        });                                        
 
-                                        instance.setProgress(95);
-                                        $('.logo.preLoad').removeClass('animatable');
-                                        setTimeout(function () {
-                                            instance.setProgress(100);
-                                            $("div.se-pre-con").fadeOut("fast");
-                                            // only do snazzy animation if you are on the home page
-                                            if ($('.fp-section.active').index() === 0) {
-                                                $('.logo').animate({ bottom: '35px' }, 1250, 'easeInOutExpo', function () {
+                                            instance.setProgress(95);
+                                            $('.logo.preLoad').removeClass('animatable');
+                                            setTimeout(function () {
+                                                instance.setProgress(100);
+                                                $("div.se-pre-con").fadeOut("fast");
+                                                // only do snazzy animation if you are on the home page
+                                                if ($('.fp-section.active').index() === 0) {
+                                                    $('.logo').animate({ bottom: '35px' }, 1250, 'easeInOutExpo', function () {
+                                                        $('.logo.postLoad').removeClass('hide');
+                                                        $('.logo.preLoad').hide();
+
+                                                    });
+                                                }
+                                                else {
                                                     $('.logo.postLoad').removeClass('hide');
                                                     $('.logo.preLoad').hide();
+                                                }
 
-                                                });
-                                            }
-                                            else {
-                                                $('.logo.postLoad').removeClass('hide');
-                                                $('.logo.preLoad').hide();
-                                            }
+                                                $('body').removeClass('body-preload');
+                                                window.removeEventListener('scroll', noscroll);
+                                                //$('.logo').css({'top': 'auto', 'bottom': '35px'});
 
-                                            $('body').removeClass('body-preload');
-                                            window.removeEventListener('scroll', noscroll);
-                                            //$('.logo').css({'top': 'auto', 'bottom': '35px'});
-
-                                        }, 1000);
+                                            }, 1000);                                        
                                     });
                                 });
                             });
