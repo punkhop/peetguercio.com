@@ -1,0 +1,23 @@
+{
+  "name": "peetguercio.com",
+  "version": "1.0.0",
+  "description": "A website for Peet Guercio",
+  "main": "index.js",
+  "dependencies": {
+    "svg4everybody": "^2.1.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p3nnst8r/peetguercio.com.git"
+  },
+  "author": "Gregory Reese",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p3nnst8r/peetguercio.com/issues"
+  },
+  "homepage": "https://github.com/p3nnst8r/peetguercio.com#readme"
+}
