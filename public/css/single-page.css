@@ -1,0 +1,216 @@
+html {
+    overflow-x: hidden;
+    background: url(../images/bg.png) no-repeat;
+    background-size: cover;
+          min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background: none;
+    color: white;
+}
+
+h1,
+h3 {
+    font-weight: bold;
+}
+
+.single-pageLights span {
+    color: #dc994e;
+}
+
+.single-pageLights .helloCasting {
+    font-size: 60px;
+}
+
+.single-pageLights .iam {
+    font-size: 97px;
+    text-align: center;
+    margin-top: -20px;
+    font-weight: 900;
+}
+
+.single-pageLights .whatIdo {
+    font-size: 29px;
+    text-align: right;
+    font-weight: bold;
+    color: #d2d2d2;
+}
+
+.single-pageLights .mybestworks {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #d2d2d2;
+}
+
+.single-pageLights .peet-guercio img {
+    max-width: 100%;
+}
+
+
+.peet-guercio {
+    margin-top: -80px;
+}
+
+.thumbnail-row {
+    margin-bottom: 15px;
+}
+
+.cthumbnail {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.cthumbnail img,
+.cthumbnail p {
+
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    font-weight: 900;
+}
+
+.cthumbnail img {
+    width: 100%;
+}
+
+.cthumbnail p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 15px 10px 3px #0000008c;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.cthumbnail:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.cthumbnail:hover p {
+    -webkit-transform: translate(-50%, -80%);
+    transform: translate(-50%, -80%);
+}
+
+.cthumbnail:after {
+    content: "";
+    display: block;
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+}
+
+.cthumbnail:hover:after {
+
+    height: 100%;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Breakpoints */
+
+@media (min-width: 1400px) {
+    .container {
+        width: 1370px;
+    }
+
+    .single-pageLights .peet-guercio img {
+        min-height: 620px;
+        max-width: 100%
+    }
+    .single-pageLights .peet-guercio {
+        margin-top: -120px;
+    }
+    .cthumbnail p {
+
+        font-size: 40px;
+    }
+}
+
+
+@media(max-width: 1199px) {
+    .cthumbnail p {
+        font-size: 26px;
+    }
+    .peet-guercio {
+        margin-top: -50px;
+    }
+
+    .single-pageLights .helloCasting {
+        font-size: 50px;
+    }
+    .single-pageLights .iam {
+        font-size: 84px;
+    }
+    .single-pageLights .whatIdo {
+        font-size: 24px;
+    }
+    .single-pageLights .mybestworks {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 991px) {
+    .cthumbnail p {
+        font-size: 18px;
+    }
+    .peet-guercio {
+        margin-top: -30px;
+    }
+    .single-pageLights .helloCasting {
+        font-size: 40px;
+    }
+    .single-pageLights .iam {
+        font-size: 74px;
+    }
+    .single-pageLights .whatIdo {
+        font-size: 20px;
+    }
+    .single-pageLights .mybestworks {
+        font-size: 24px;
+    }
+}
+
+@media(max-width: 767px) {
+
+    .peet-guercio {
+        margin-top: 20px;
+    }
+    .single-pageLights .mybestworks {
+        font-size: 28px;
+    }
+    .single-pageLights .whatIdo {
+
+        text-align: left;
+    }
+    .single-pageLights .iam {
+        font-size: 74px;
+    }
+}
