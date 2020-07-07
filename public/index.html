@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170193804-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-170193804-1');
+  </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Peet is a comedian, host, actor, and writer in Los Angeles. He is proficient in Word and Excel and would make a great addition to your corporate team."/>
+  <title>Peet Guercio</title>
+  <link rel="shortcut icon" type="image/png" href="./production/images/favicon.webp">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./node_modules/aos/dist/aos.js"></script>
+  <script src="./production/js/scripts.js"></script>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./production/css/index.css">
+  <link rel="stylesheet" type="text/css" href="./node_modules/aos/dist/aos.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <nav class="navigation" id="websiteNavigation">
+      <!-- <a class="navlink" onclick="clickedNavLink()" href="#shows">Live Shows</a> -->
+      <a class="navlink" onclick="clickedNavLink()" href="#videos">Videos</a>
+      <a class="navlink" onclick="clickedNavLink()" href="https://tryhard.cool/" target="_blank">Merch</a>
+      <!-- <a class="navlink" onclick="clickedNavLink()" href="#bio">Bio</a> -->
+      <a class="navlink" onclick="clickedNavLink()" href="#contact">Contact</a>
+    </nav>
+    <svg class="ham hamRotate ham8" id="hamburger" viewBox="0 0 100 100" width="45" onclick="responsiveNav()">
+      <path class="line top"
+        d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
+      <path class="line middle" d="m 30,50 h 40" />
+      <path class="line bottom"
+        d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
+    </svg>
+    <div class="social-media">
+      <a target="_blank" href="https://www.tiktok.com/@peetguercio">
+        <img class="social-icons" src="./production/images/tiktok.svg" alt="TikTok">
+      </a>
+      <a target="_blank" href="https://www.youtube.com/user/punkhop">
+        <img class="social-icons" src="./production/images/youtube.svg" alt="Youtube">
+      </a>
+      <a target="_blank" href="https://www.twitter.com/peetguercio">
+        <img class="social-icons" src="./production/images/twitter.svg" alt="Twitter">
+      </a>
+      <a target="_blank" href="https://www.instagram.com/peetguercio/">
+        <img class="social-icons" src="./production/images/instagram.svg" alt="Instagram">
+      </a>
+      <a target="_blank" href="https://www.facebook.com/peetguercio">
+        <img class="social-icons" src="./production/images/facebook_square.svg" alt="Facebook">
+      </a>
+    </div>
+  </div>
+  <section class="hero-section">
+    <img class="peet-logo" src="./production/images/white-logo.svg" alt="Peet Guercio">
+    <div class="peet-image"></div>
+  </section>
+  <section class="newsletter">
+    <h3 class="h3-headline">Text PEET to 31996 for my updates and exclusive videos!</h3>
+    <a href="https://tryhard.cool/" target="_blank">
+      <img class="merch-image" src="./production/images/merchbanner.webp" alt="Get Merch Here">
+    </a>
+  </section>
+
+  <section class="video-section">
+    <img class="subhead" src="./production/images/videos.webp" alt="Videos">
+    <div id="videos" class="video-flexbox">
+      <a data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
+        href="https://www.youtube.com/watch?v=5vor08ONAS8" data-youtube-id="5vor08ONAS8"
+        class="video-thumb js-trigger-video-modal video-anchor">
+        <div class="playbutton"></div>
+        <img class="video-banner-img" src="./production/images/video1.webp" alt="Gotham Comedy Club">
+      </a>
+      <a data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
+        href="https://www.youtube.com/watch?v=qFYr-bzN1e0" data-youtube-id="qFYr-bzN1e0"
+        class="video-thumb js-trigger-video-modal video-anchor">
+        <div class="playbutton"></div>
+        <img class="video-banner-img" src="./production/images/video4.webp" alt="Comedian Wedding Speech">
+      </a>
+      <a data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
+        href="https://www.youtube.com/watch?v=-cEWqH_dudU" data-youtube-id="-cEWqH_dudU"
+        class="video-thumb js-trigger-video-modal video-anchor">
+        <div class="playbutton"></div>
+        <img class="video-banner-img" src="./production/images/unconventional.webp" alt="Unconventional">
+      </a>
+      <a data-aos="fade-up" data-aos-delay="1000" data-aos-once="true" data-aos-duration="1000"
+        data-aos-anchor="#videos" href="https://www.youtube.com/watch?v=bNahzOQYxoI" data-youtube-id="bNahzOQYxoI"
+        class="video-thumb js-trigger-video-modal video-anchor">
+        <div class="playbutton"></div>
+        <img class="video-banner-img" src="./production/images/tbd.webp" alt="TBD Bytes">
+      </a>
+    </div>
+  </section>
+  <section class="contact-section" id="contact">
+    <img class="subhead" src="./production/images/contact.png" alt="Contact">
+    <h3 class="h3-headline">Business + bookings</h3>
+    <a class="white-anchor" href="mailto:jack.rhys@peaktalent.net">jack.rhys@peaktalent.net</a>
+    <h3 class="h3-headline">Direct</h3>
+    <a class="white-anchor" href="mailto:peet@peetguercio.com">peet@peetguercio.com</a>
+  </section>
+  <section class="footer">
+    <ul id="events-upcoming"></ul>
+    <p class="footer-text">©2020 Peet Guercio. All rights reserved.</p>
+  </section>
+  <!-- video modal -->
+  <div class="video-modal">
+    <!-- Modal Content Wrapper -->
+    <div id="video-modal-content" class="video-modal-content">
+      <!-- iframe -->
+      <iframe id="youtube" width="100%" height="100%" frameborder="0" allow="autoplay" allowfullscreen src=></iframe>
+      <a href="#" class="close-video-modal">
+        <!-- X close video icon -->
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0"
+          viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" width="24" height="24">
+          <g id="icon-x-close">
+            <path fill="#ffffff"
+              d="M30.3448276,31.4576271 C29.9059965,31.4572473 29.4852797,31.2855701 29.1751724,30.980339 L0.485517241,2.77694915 C-0.122171278,2.13584324 -0.104240278,1.13679247 0.52607603,0.517159487 C1.15639234,-0.102473494 2.17266813,-0.120100579 2.82482759,0.477288136 L31.5144828,28.680678 C31.9872448,29.1460053 32.1285698,29.8453523 31.8726333,30.4529866 C31.6166968,31.0606209 31.0138299,31.4570487 30.3448276,31.4576271 Z"
+              id="Shape"></path>
+            <path fill="#ffffff"
+              d="M1.65517241,31.4576271 C0.986170142,31.4570487 0.383303157,31.0606209 0.127366673,30.4529866 C-0.12856981,29.8453523 0.0127551942,29.1460053 0.485517241,28.680678 L29.1751724,0.477288136 C29.8273319,-0.120100579 30.8436077,-0.102473494 31.473924,0.517159487 C32.1042403,1.13679247 32.1221713,2.13584324 31.5144828,2.77694915 L2.82482759,30.980339 C2.51472031,31.2855701 2.09400353,31.4572473 1.65517241,31.4576271 Z"
+              id="Shape"></path>
+          </g>
+        </svg>
+      </a>
+    </div><!-- end modal content wrapper -->
+    <!-- clickable overlay element -->
+    <div class="overlay"></div>
+  </div>
+  <!-- end video modal -->
+  <script>
+    AOS.init();
+
+    formatGoogleCalendar.init({
+        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com/events?key=AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk',
+        past: false,
+        recurringEvents: false,
+        timeMin: '2020-06-23T10:00:00-07:00',
+        timeMax: '2025-06-03T10:00:00-07:00',
+      });
+  </script>
+</body>
+
+</html>
