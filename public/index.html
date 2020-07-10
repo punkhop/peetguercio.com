@@ -16,7 +16,8 @@
   </script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Peet is a comedian, host, actor, and writer in Los Angeles. He is proficient in Word and Excel and would make a great addition to your corporate team."/>
+  <meta name="description"
+    content="Peet is a comedian, host, actor, and writer in Los Angeles. He is proficient in Word and Excel and would make a great addition to your corporate team." />
   <title>Peet Guercio</title>
   <link rel="shortcut icon" type="image/png" href="./production/images/favicon.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -35,7 +36,7 @@
       <!-- <a class="navlink" onclick="clickedNavLink()" href="#shows">Live Shows</a> -->
       <a class="navlink" onclick="clickedNavLink()" href="#videos">Videos</a>
       <a class="navlink" onclick="clickedNavLink()" href="https://tryhard.cool/" target="_blank">Merch</a>
-      <!-- <a class="navlink" onclick="clickedNavLink()" href="#bio">Bio</a> -->
+      <a class="navlink" onclick="clickedNavLink()" href="bio.html">Bio</a>
       <a class="navlink" onclick="clickedNavLink()" href="#contact">Contact</a>
     </nav>
     <svg class="ham hamRotate ham8" id="hamburger" viewBox="0 0 100 100" width="45" onclick="responsiveNav()">
@@ -67,17 +68,17 @@
     <img class="peet-logo" src="./production/images/white-logo.svg" alt="Peet Guercio">
     <div class="peet-image"></div>
   </section>
-  <section class="newsletter">
-    <h3 class="h3-headline">Text PEET to 31996 for my updates and exclusive videos!</h3>
+  <section id="news" class="newsletter">
+    <h3 data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="h3-headline">Text PEET to 31996 for my updates and exclusive videos!</h3>
     <a href="https://tryhard.cool/" target="_blank">
-      <img class="merch-image" src="./production/images/merchbanner.png" alt="Get Merch Here">
+      <img data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="merch-image" src="./production/images/Merch_banner_v2.png" alt="Get Merch Here">
     </a>
   </section>
 
   <section class="video-section">
-    <img class="subhead" src="./production/images/videos.png" alt="Videos">
-    <div id="videos" class="video-flexbox">
-      <a data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
+    <img data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="subhead" src="./production/images/videos.png" alt="Videos">
+    <div class="video-flexbox">
+      <a id="videos" data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
         href="https://www.youtube.com/watch?v=5vor08ONAS8" data-youtube-id="5vor08ONAS8"
         class="video-thumb js-trigger-video-modal video-anchor">
         <div class="playbutton"></div>
@@ -104,11 +105,18 @@
     </div>
   </section>
   <section class="contact-section" id="contact">
-    <img class="subhead" src="./production/images/contact.png" alt="Contact">
-    <h3 class="h3-headline">Business + bookings</h3>
-    <a class="white-anchor" href="mailto:jack.rhys@peaktalent.net">jack.rhys@peaktalent.net</a>
-    <h3 class="h3-headline">Direct</h3>
-    <a class="white-anchor" href="mailto:peet@peetguercio.com">peet@peetguercio.com</a>
+    <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#contact" class="subhead" src="./production/images/contact.png" alt="Contact">
+    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#contact" class="contact-flex">
+      <div class="contact-item">
+        <h3 class="h3-headline">Business</h3>
+        <a class="white-anchor" href="mailto:jack.rhys@peaktalent.net">jack.rhys@peaktalent.net</a>
+      </div>
+      <div class="vertical-bar"></div>
+      <div class="contact-item">
+        <h3 class="h3-headline">Direct</h3>
+        <a class="white-anchor" href="mailto:peet@peetguercio.com">peet@peetguercio.com</a>
+      </div>
+    </div>
   </section>
   <section class="footer">
     <ul id="events-upcoming"></ul>
@@ -143,12 +151,12 @@
     AOS.init();
 
     formatGoogleCalendar.init({
-        calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com/events?key=AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk',
-        past: false,
-        recurringEvents: false,
-        timeMin: '2020-06-23T10:00:00-07:00',
-        timeMax: '2025-06-03T10:00:00-07:00',
-      });
+      calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com/events?key=AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk',
+      past: false,
+      recurringEvents: false,
+      timeMin: '2020-06-23T10:00:00-07:00',
+      timeMax: '2025-06-03T10:00:00-07:00',
+    });
   </script>
 </body>
 
