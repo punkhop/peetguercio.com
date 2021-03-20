@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> <!-- Website Title shown in the tab -->
+    <style>
+    *, ::after, ::before{ /* do not change */
+        box-sizing:border-box
+    }
+    html{
+        background: #FAFAFA; /* Site Background Color */
+    }
+    body{
+        margin: 0;
+        padding: 2em 0;
+        font-family: sans-serif; /* Custom Font insert here */
+        line-height: 1;
+        font-size: 1em;
+        min-height: 100vh;
+        width: 100vw;
+        max-width: 100vw;
+    }
+    .linktree{ /* do not change */
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .image{ /* do not change */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    img{
+        max-width: 80vw;
+        height: auto;
+        max-height: 20vh;
+        margin-bottom: 2em; /* Space below Image */
+    }
+    ul{ /* do not change */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+    ul li{
+        padding: 1em 2em; /* Space inside Button, Button edge to Text */
+        display: flex;
+        max-width: 80vw;
+        border-radius: 8px; /* Rounded Rectangle */
+        background: #0B3954; /* Button Background Color */
+        transition: .3s ease;
+    }
+    ul li:hover{
+        background: #087E8B; /* Button Hover Background Color */
+        cursor: pointer;
+    }
+    ul li:not(:last-child){
+        margin-bottom: 2rem; /* Space between buttons */
+    }
+    ul li a{
+        font-weight: 600; /* Letter width */
+        letter-spacing: .01em; /* Text Kerning */
+        color: #FAFAFA; /* Button Text Color */
+        /* do not change */
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div class="linktree">
+        <div class="image">
+            <img src="Logo_On_Color.png">
+        </div>
+        <ul>
+            <li><a href="">Buy tickets</a></li>
+            <li><a href="">Merch</a></li>
+            <li><a href="">Fan Club / Patreon</a></li>
+            <li><a href="">Work with Peet</a></li>
+            <li><a href="">Continue to website</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+
