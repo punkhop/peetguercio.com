@@ -50,11 +50,11 @@
         display: flex;
         max-width: 80vw;
         border-radius: 8px; /* Rounded Rectangle */
-        background: #0B3954; /* Button Background Color */
+        /* background: #0B3954; */ /* Button Background Color */
         transition: .3s ease;
     }
     ul li:hover{
-        background: #087E8B; /* Button Hover Background Color */
+        /* background: #087E8B; */ /* Button Hover Background Color */
         cursor: pointer;
     }
     ul li:not(:last-child){
@@ -74,6 +74,36 @@
         text-transform: uppercase;
         width: 100%;
     }
+    li.a{
+        background: #000001; /* 1st Button Color */
+    }
+    li.a:hover{
+        background: #000011; /* 1st Button Color Hover */
+    }
+    li.b{
+        background: #000002; /* 2nd Button Color */
+    }
+    li.b:hover{
+        background: #000012; /* 2nd Button Color Hover */
+    }
+    li.c{
+        background: #000003; /* 3rd Button Color */
+    }
+    li.c:hover{
+        background: #000013; /* 3rd Button Color Hover */
+    }
+    li.d{
+        background: #000004; /* 4th Button Color */
+    }
+    li.d:hover{
+        background: #000014; /* 4th Button Color Hover */
+    }
+    li.e{
+        background: #000005; /* 5th Button Color */
+    }
+    li.e:hover{
+        background: #000015; /* 5th Button Color Hover */
+    }
     </style>
 </head>
 <body>
@@ -82,11 +112,11 @@
             <img src="production/images/linkslogo.png">
         </div>
         <ul>
-            <li><a href="">Buy tickets</a></li>
-            <li><a href="">Merch</a></li>
-            <li><a href="">Fan Club / Patreon</a></li>
-            <li><a href="">Work with Peet</a></li>
-            <li><a href="">Continue to website</a></li>
+            <li class="a"><a href="">Buy tickets</a></li>
+            <li class="b"><a href="">Merch</a></li>
+            <li class="c"><a href="">Fan Club / Patreon</a></li>
+            <li class="d"><a href="">Work with Peet</a></li>
+            <li class="e"><a href="">Continue to website</a></li>
         </ul>
     </div>
 </body>
