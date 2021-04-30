@@ -245,26 +245,30 @@
             if (isSameDay(dateStart, dateEnd)) {
                 moreDaysEvent = false;
             }
+
+            console.log('dateStart', dateStart);
     
             var dateFormatted = getFormattedDate(dateStart, dateEnd, dayNames, moreDaysEvent, isAllDayEvent),
+                dateSplit = dateFormatted.split("-")[0],
                 output = '<' + tagName + '>',
                 summary = result.summary || '',
                 description = result.description || '',
-                location = result.location || '',
+                location = result.location.split("\n")[1] || '',
                 cleanUrl = description.split('"')[1] || '',
+                timeFormat = dateFormatted.split("-")[1],
                 i;
                 
             for (i = 0; i < format.length; i++) {
                 format[i] = format[i].toString();
     
                 if (format[i] === '*summary*') {
-                    output = output.concat('<p class="summary">' + summary + '</p></div>');
+                    output = output.concat('<p class="venue">' + summary + '</p><p class="time">' +timeFormat+ '</p></div>');
                 } else if (format[i] === '*date*') {
-                    output = output.concat('<div class="date">' + dateFormatted + '</div>');
+                    output = output.concat('<div class="ticket-flex"><div class="date">' + dateSplit + '</div>');
                 } else if (format[i] === '*description*') {
-                    output = output.concat((description !== '') ? '<a class="tickets" href='+cleanUrl+' target="_blank">Tickets</a>' : '');
+                    output = output.concat((description !== '') ? '</div><a class="tickets" href='+cleanUrl+' target="_blank">Tickets</a>' : '');
                 } else if (format[i] === '*location*') {
-                    output = output.concat((location !== '') ? '<div class="event-info"><p class="location">' + location + '</p>' : '' );
+                    output = output.concat((location !== '') ? '<div class="event-info"><p class="location">' + location.replace(/\d{5}/, '') + '</p>' : '' );
                 } else {
                     if (format[i + 1] === '*location*' && location !== '' || format[i + 1] === '*summary*' && summary !== '' || format[i + 1] === '*date*' && dateFormatted !== '' || format[i + 1] === '*description*' && description !== '') {
     
@@ -351,12 +355,12 @@
             }
     
             if (config.sameDayTimes && !moreDaysEvent && !isAllDayEvent) {
-                formattedTime = ' from ' + getFormattedTime(dateStart) + ' - ' + getFormattedTime(dateEnd);
+                formattedTime = ' - ' + getFormattedTime(dateStart);
             }
     
             //month day, year time-time
             //return dayNameStart + getMonthName(dateStart[1]) + ' ' + dateStart[0] + ', ' + dateStart[2] + formattedTime;
-            return '<span class="event-date">' + dateStart[0] + '</span> <span class="event-month">' + getMonthName (dateStart[1]) + '</span>';
+            return getMonthName(dateStart[1]) + ' ' + dateStart[0] + formattedTime;
         };
     
         var formatDateOneDay = function formatDateOneDay(dateStart, dayNames) {
@@ -452,13 +456,13 @@
     
         var getFormattedTime = function getFormattedTime(date) {
             var formattedTime = '',
-                period = 'AM',
+                period = ' AM',
                 hour = date[3],
                 minute = date[4];
     
             // Handle afternoon.
             if (hour >= 12) {
-                period = 'PM';
+                period = ' PM';
     
                 if (hour >= 13) {
                     hour -= 12;
@@ -492,7 +496,7 @@
                     itemsTagName: 'li',
                     upcomingSelector: '#events-upcoming',
                     pastSelector: '#events-past',
-                    upcomingHeading: '<h2>Upcoming events</h2>',
+                    upcomingHeading: '<img data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="subhead" src="./production/images/liveshows_copy.png" alt="Videos">',
                     pastHeading: '<h2>Past events</h2>',
                     format: ['*date*', '*location*', '*summary*', '*description*',],
                     timeMin: undefined,

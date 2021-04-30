@@ -2,7 +2,7 @@
 @import "video-modal.scss";
 
 body {
-  color: #fff;
+  color: #e5e5e5;
 }
 
 section {
@@ -59,7 +59,7 @@ section {
 }
 
 .navlink {
-  color: #fff;
+  color: #e5e5e5;
   text-decoration: none;
   font-weight: 900;
   transition: all 0.3s;
@@ -113,7 +113,7 @@ section {
 }
 
 .social-icons {
-  fill: #fff;
+  fill: #e5e5e5;
   width: 20px;
 }
 
@@ -130,7 +130,7 @@ section {
   background-image: url(../../production/images/peethero_v2.png);
   background-repeat: no-repeat;
   background-size: 50%;
-  height: 110vw;
+  height: 105vw;
   width: 100vw;
   background-position: center bottom;
   max-width: 1100px;
@@ -186,7 +186,7 @@ section {
 .line {
   fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke: #fff;
+  stroke: #e5e5e5;
   stroke-width: 5.5;
   stroke-linecap: round;
 }
@@ -227,7 +227,7 @@ section {
 }
 
 .h3-headline {
-  color: #fff;
+  color: #e5e5e5;
   margin: 0 auto;
   text-align: center;
   padding: 0 20px;
@@ -251,7 +251,7 @@ section {
 }
 
 .white-anchor {
-  color: #fff;
+  color: #e5e5e5;
   margin: 5px auto 0;
   text-align: center;
   text-decoration: none;
@@ -378,33 +378,42 @@ section {
   padding: 0;
 
   li {
-    border: #fff 2px solid;
+    background: rgba(0, 0, 0, 0.8); 
     margin: 20px 0;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
-    max-width: 900px;
+    max-width: 600px;
     display: flex;
-    flex-direction: column;
-
-    @media screen and (min-width: 769px) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (min-width: 768px) {
+      margin-left: auto;
     }
   }
 }
 
 .date {
+  font-size: 16px;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  margin: 0 10px 0 0;
-  width: 115px;
 }
 
-.event-date {
-  font-weight: 900;
+.location {
   font-size: 20px;
-  margin: 0 10px 0 0;
+  font-weight: 700;
+  color: #83cbd5;
+}
+
+.venue {
+  font-size: 11px;
+  font-weight: 400;
+  color: #f68bff;
+}
+
+.time {
+  font-size: 9px;
+  font-weight: 400;
 }
 
 .event-info {
@@ -412,11 +421,11 @@ section {
 }
 
 .tickets {
-  color: #fff;
+  color: #e5e5e5;
   text-decoration: none;
-  font-weight: 900;
+  font-weight: 800;
   transition: all 0.3s;
-  font-size: 16px;
+  font-size: 19px;
   text-transform: uppercase;
 
   &:hover {
@@ -446,4 +455,21 @@ section {
   overflow: hidden;
   background: url(../../production/images/xbox.png) no-repeat top center;
   background-size: cover;
+}
+
+.shows-section {
+  padding: 0 20px;
+  position: relative;
+  background-image: url(../../production/images/peetliveshows.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  height: 105vw;
+  width: 100vw;
+  @media screen and (min-width: 768px) {
+    background-position: bottom left;
+    width: 100%;
+    height: auto;
+    background-size: contain
+  }
 }
