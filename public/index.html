@@ -25,7 +25,10 @@
   <script src="./production/js/scripts.js"></script>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,300;1,500;1,900&family=Lato:wght@400;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./production/css/index.css">
   <link rel="stylesheet" type="text/css" href="./node_modules/aos/dist/aos.css" />
 </head>
@@ -36,7 +39,7 @@
       <!-- <a class="navlink" onclick="clickedNavLink()" href="#shows">Live Shows</a> -->
       <a class="navlink" onclick="clickedNavLink()" href="#videos">Videos</a>
       <a class="navlink" onclick="clickedNavLink()" href="https://tryhard.cool/" target="_blank">Merch</a>
-      <a class="navlink" onclick="clickedNavLink()" href="bio.html">Bio</a>
+      <a class="navlink" onclick="clickedNavLink()" href="#bio">Bio</a>
       <a class="navlink" onclick="clickedNavLink()" href="#contact">Contact</a>
     </nav>
     <svg class="ham hamRotate ham8" id="hamburger" viewBox="0 0 100 100" width="45" onclick="responsiveNav()">
@@ -62,51 +65,121 @@
       <a target="_blank" href="https://www.facebook.com/peetguercio">
         <img class="social-icons" src="./production/images/facebook_square.svg" alt="Facebook">
       </a>
+      <a target="_blank" href="https://www.patreon.com/peetguercio">
+        <img class="social-icons" src="./production/images/patreon-social.png" alt="Patreon">
+      </a>
     </div>
   </div>
+
   <section class="hero-section">
     <img class="peet-logo" src="./production/images/white-logo.svg" alt="Peet Guercio">
     <div class="peet-image"></div>
   </section>
+
   <section id="news" class="newsletter">
-    <h3 data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="h3-headline">Text PEET to 31996 for free early access to show tickets and exclusive videos!</h3>
-    <a href="https://tryhard.cool/" target="_blank">
-      <img data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="merch-image" src="./production/images/Merch_banner_v2.png" alt="Get Merch Here">
-    </a>
+    <h3 data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news"
+      class="h3-headline">Text PEET to 31996 for free early access to show tickets and exclusive videos!</h3>
+  </section>
+
+  <section id="liveshows">
+    <img data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news"
+      class="subhead" src="./production/images/liveshows.png" alt="Live Shows">
+    <ul id="events-upcoming"></ul>
+    <a class="links-retro" href="https://tryhard.cool/" target="_blank">ALL TOUR DATES</a>
+  </section>
+
+  <section id="merch">
+    <img data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news"
+      class="subhead" src="./production/images/merch.png" alt="Merch">
+    <div class="merch-grid">
+      <a id="merchsection" data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000"
+        data-aos-anchor="#merchsection" href="https://tryhard.cool/collections/latest-arrivals/products/athlete-tee"
+        target="_blank" class="merch-thumb">
+        <img class="merch-item" src="./production/images/points.jpg" alt="Points Shirt">
+      </a>
+      <a data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000"
+        data-aos-anchor="#merchsection"
+        href="https://tryhard.cool/collections/latest-arrivals/products/fancy-tote-vintage" target="_blank"
+        class="merch-thumb">
+        <img class="merch-item" src="./production/images/totebag.jpg" alt="Tote Bag">
+      </a>
+      <a data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000"
+        data-aos-anchor="#videmerchsectionos"
+        href="https://tryhard.cool/collections/latest-arrivals/products/two-way-street-bandana" target="_blank"
+        class="merch-thumb">
+        <img class="merch-item" src="./production/images/noyousit.jpg" alt="Street Bandana">
+      </a>
+      <a data-aos="fade-up" data-aos-delay="1000" data-aos-once="true" data-aos-duration="1000"
+        data-aos-anchor="#merchsection" href="https://tryhard.cool/products/department-of-education-sweatshirt"
+        target="_blank" class="merch-thumb">
+        <img class="merch-item" src="./production/images/collegeuniversity.jpg" alt="Education Sweatshirt">
+      </a>
+    </div>
+    <a class="links-retro" href="https://tryhard.cool/" target="_blank">ALL MERCH</a>
   </section>
 
   <section class="video-section">
-    <img data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news" class="subhead" src="./production/images/videos.png" alt="Videos">
+    <img data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#news"
+      class="subhead" src="./production/images/videos.png" alt="Videos">
     <div class="video-flexbox">
-      <a id="videos" data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
-        href="https://www.youtube.com/watch?v=5vor08ONAS8" data-youtube-id="5vor08ONAS8"
-        class="video-thumb js-trigger-video-modal video-anchor">
-        <div class="playbutton"></div>
-        <img class="video-banner-img" src="./production/images/video1.png" alt="Gotham Comedy Club">
-      </a>
-      <a data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
-        href="https://www.youtube.com/watch?v=qFYr-bzN1e0" data-youtube-id="qFYr-bzN1e0"
-        class="video-thumb js-trigger-video-modal video-anchor">
-        <div class="playbutton"></div>
-        <img class="video-banner-img" src="./production/images/video4.png" alt="Comedian Wedding Speech">
-      </a>
-      <a data-aos="fade-up" data-aos-delay="750" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#videos"
-        href="https://www.youtube.com/watch?v=-cEWqH_dudU" data-youtube-id="-cEWqH_dudU"
-        class="video-thumb js-trigger-video-modal video-anchor">
-        <div class="playbutton"></div>
-        <img class="video-banner-img" src="./production/images/unconventional.jpg" alt="Unconventional">
-      </a>
-      <a data-aos="fade-up" data-aos-delay="1000" data-aos-once="true" data-aos-duration="1000"
-        data-aos-anchor="#videos" href="https://www.youtube.com/watch?v=bNahzOQYxoI" data-youtube-id="bNahzOQYxoI"
-        class="video-thumb js-trigger-video-modal video-anchor">
-        <div class="playbutton"></div>
-        <img class="video-banner-img" src="./production/images/tbd.jpg" alt="TBD Bytes">
-      </a>
+      <iframe id="videos" loading="lazy" width="340" height="700" src="https://www.tiktok.com/embed/6919391774368632069"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen="allowfullscreen" data-aos="fade-up" data-aos-delay="250" data-aos-once="true"
+        data-aos-duration="1000" data-aos-anchor="#videos"></iframe>
+      <iframe loading="lazy" width="340" height="700" src="https://www.tiktok.com/embed/6897205649634102534"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen="allowfullscreen" data-aos="fade-up" data-aos-delay="500" data-aos-once="true"
+        data-aos-duration="1000" data-aos-anchor="#videos"></iframe>
+      <iframe loading="lazy" width="340" height="700" src="https://www.tiktok.com/embed/6901253841031908614"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen="allowfullscreen" data-aos="fade-up" data-aos-delay="750" data-aos-once="true"
+        data-aos-duration="1000" data-aos-anchor="#videos"></iframe>
+      <iframe loading="lazy" width="340" height="700" src="https://www.tiktok.com/embed/6909465468046806278"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen="allowfullscreen" data-aos="fade-up" data-aos-delay="1000" data-aos-once="true"
+        data-aos-duration="1000" data-aos-anchor="#videos"></iframe>
     </div>
+    <a class="links-retro" href="https://tryhard.cool/" target="_blank">SEE MORE VIDEOS</a>
   </section>
+
+  <section id="fanclub" class="styled-section">
+    <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" class="subhead"
+      src="./production/images/fanclub.png" alt="fanclub">
+    <a href="https://www.patreon.com/peetguercio" target="_blank"><img data-aos="fade-up" data-aos-delay="250"
+        data-aos-once="true" data-aos-duration="1000" class="patreon-logo" src="./production/images/patreon.png"
+        alt="patreon"></a>
+    <p data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000">For exclusive access to
+      Peet’s entire video library, live chats, merch discounts, shoutouts and more, check out his <a
+        href="https://www.patreon.com/peetguercio" target="_blank">Patreon page!</a>
+    </p>
+  </section>
+
+  <section id="bio" class="styled-section">
+    <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" class="subhead"
+      src="./production/images/bio.png" alt="Bio">
+    <p data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000">Inclusive, silly, fun
+      standup. Peet&rsquo;s natural charm and warmth makes the audience want to hang out with
+      him after the show. Crowd interaction and a &ldquo;we&rsquo;re all in this together&rdquo; feel makes
+      Peet&rsquo;s comedy very different than the standard performer/audience dynamic.</p>
+
+    <p data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000">Peet can&rsquo;t wait
+      to share his laughs with you. His positive, infectious energy makes audiences feel like
+      they aren&rsquo;t watching a polished comedian, but a hilarious friend telling stories at a house party. A
+      favorite of colleges all over the country and a paid regular at the Improv and Laugh Factory clubs, Peet is
+      a crowd favorite that is sure to please.</p>
+
+    <p data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000">Standup that feels more
+      like a new friend telling you a great story at a party. Peet&rsquo;s infectious charm
+      and warmth breaks down the standard performer/audience dynamic. From opening national theater tours, to
+      starring on an E! sitcom, to hosting talk, game, and sports shows for MTV, Peet is having an absolute blast
+      making you laugh while he searches for a cure for his cat allergies.</p>
+  </section>
+
   <section class="contact-section" id="contact">
-    <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#contact" class="subhead" src="./production/images/contact.png" alt="Contact">
-    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" data-aos-anchor="#contact" class="contact-flex">
+    <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000"
+      data-aos-anchor="#contact" class="subhead" src="./production/images/contact.png" alt="Contact">
+    <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000"
+      data-aos-anchor="#contact" class="contact-flex">
       <div class="contact-item">
         <h3 class="h3-headline">Business</h3>
         <a class="white-anchor" href="mailto:biz@peetguercio.com">biz@peetguercio.com</a>
@@ -118,9 +191,9 @@
       </div>
     </div>
   </section>
+
   <section class="footer">
-    <!-- <ul id="events-upcoming"></ul> -->
-    <p class="footer-text">©2020 Peet Guercio. All rights reserved.</p>
+    <p class="footer-text">©2021 Peet Guercio. All rights reserved.</p>
   </section>
   <!-- video modal -->
   <div class="video-modal">
@@ -154,8 +227,9 @@
       calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com/events?key=AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk',
       past: false,
       recurringEvents: false,
-      timeMin: '2020-06-23T10:00:00-07:00',
+      timeMin: '2021-03-23T10:00:00-07:00',
       timeMax: '2025-06-03T10:00:00-07:00',
+      upcomingTopN: 3,
     });
   </script>
 </body>
