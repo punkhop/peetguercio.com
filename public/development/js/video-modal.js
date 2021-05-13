@@ -22,7 +22,7 @@ $(document).ready(function () {
         var related_no = '&rel=0';
   
         // String the ID and param variables together
-        var src = '//www.youtube.com/embed/' + id + autoplay + related_no;
+        var src = '//tiktok.com/embed/' + id + autoplay + related_no;
   
         // Pass the YouTube video ID into the iframe template...
         // Set the source on the iframe to match the video ID

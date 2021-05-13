@@ -62,29 +62,10 @@
 
 	background: #000;
   
-  width: calc(100% - 12em);
-  height: 0;
-  padding-top: calc((100% - 12em) * 0.5625); /* 16:9 calc */
-}
-
-/* Scaling to fit within the current Viewport size:
-   When viewport aspect ratio is greater than 16:9
-   work off the height instead of the width for calc */
- @media (min-aspect-ratio: 16/9) {
-  .video-modal-content {
-    width: 0;
-    height: calc(100vh - 10em);
-    padding-top: 0;
-    padding-left: calc((100vh - 10em) * 1.7778); /* 16:9 calc */
-  }
-}
-
-/* Mobile Layout Tweaks - side margins reduced */
-@media (max-width: 640px) {
-	.video-modal-content {
-		width: calc(100% - 1em);
-    padding-top: calc((100% - 1em) * 0.5625); /* 16:9 calc */
-	}
+  width: 100vw;
+  height: calc(100vw * 16 / 9);
+  max-height: 80vh;
+  max-width: calc(30vh * 16/9);
 }
 
 /* modal close button */

@@ -273,24 +273,13 @@ section {
 }
 
 .video-flexbox {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
-  align-items: center;
-  padding: 0 20px;
-
-  @media screen and (min-width: 700px) {
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 740px;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  @media screen and (min-width: 1023px) {
-    justify-content: space-around;
-  }
 }
 
 .video-anchor {
@@ -314,10 +303,13 @@ section {
 }
 
 .video-banner-img {
-  margin: 0 auto 10px;
-  width: 100%;
-  height: 100%;
   transition: transform .5s ease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
 
   &:hover {
     transform: scale(1.1);
@@ -508,6 +500,7 @@ section {
   max-width: 300px;
   margin: 20px auto;
   border-radius: 5px;
+
   @media screen and (min-width: 700px) {
     margin: 20px 0 0 auto;
   }
