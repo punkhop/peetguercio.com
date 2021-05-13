@@ -103,7 +103,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 75%;
+  width: 50%;
 
   @media screen and (min-width: 769px) {
     position: static;
@@ -273,25 +273,13 @@ section {
 }
 
 .video-flexbox {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
-  align-items: center;
-  padding: 0 20px;
-
-  @media screen and (min-width: 619px) {
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  @media screen and (min-width: 1023px) {
-    max-width: 1080px;
-    justify-content: space-around;
-  }
 }
 
 .video-anchor {
@@ -315,10 +303,13 @@ section {
 }
 
 .video-banner-img {
-  margin: 0 auto 10px;
-  width: 100%;
-  height: 100%;
   transition: transform .5s ease;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
 
   &:hover {
     transform: scale(1.1);
@@ -376,10 +367,14 @@ section {
 #events-upcoming {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
 
   li {
-    border: #fff 2px solid;
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 20px;
     width: 100%;
     max-width: 900px;
@@ -398,33 +393,58 @@ section {
   display: flex;
   align-items: center;
   margin: 0 10px 0 0;
-  width: 115px;
+  font-size: 39px;
+  font-style: italic;
+  font-weight: 500;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    max-width: 200px;
+  }
 }
 
 .event-date {
-  font-weight: 900;
-  font-size: 20px;
-  margin: 0 10px 0 0;
+  @media screen and (min-width: 700px) {
+    margin: 0 10px 0 auto;
+    text-align: right;
+  }
 }
 
 .event-info {
-  margin-right: auto;
+  width: 100%;
+
+  @media screen and (min-width: 700px) {
+    text-align: right;
+    margin: 0 auto 0 60px;
+    max-width: 400px;
+  }
+}
+
+.location {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.summary {
+  font-size: 27px;
+  font-weight: 500;
 }
 
 .tickets {
   color: #fff;
   text-decoration: none;
   font-weight: 900;
+  font-style: italic;
   transition: all 0.3s;
-  font-size: 16px;
-  text-transform: uppercase;
+  font-size: 27px;
 
   &:hover {
     color: #A1C6EA;
   }
 }
 
-.bio-section {
+.styled-section {
   padding: 0 20px;
   position: relative;
 
@@ -446,4 +466,51 @@ section {
   overflow: hidden;
   background: url(../../production/images/xbox.png) no-repeat top center;
   background-size: cover;
+}
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.merch-item {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.links-retro {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(45deg, #e400ff, #00ffea);
+  color: #fafafa;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: 30px;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  border-radius: 5px;
+
+  @media screen and (min-width: 700px) {
+    margin: 20px 0 0 auto;
+  }
+}
+
+.patreon-logo {
+  display: block;
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  margin: 0 auto;
+  image-rendering: crisp-edges;
 }
