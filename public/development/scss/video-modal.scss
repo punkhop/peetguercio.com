@@ -62,10 +62,9 @@
 
 	background: #000;
   
-  width: 100vw;
-  height: calc(100vw * 16 / 9);
+  width: calc((100vh - 2px) * 0.485714);
+  height: calc(100vh);
   max-height: 80vh;
-  max-width: calc(30vh * 16/9);
 }
 
 /* modal close button */
