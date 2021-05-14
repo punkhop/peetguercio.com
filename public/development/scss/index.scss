@@ -8,7 +8,11 @@ body {
 section {
   width: 100%;
   max-width: 1080px;
-  margin: 0 auto;
+  margin: 40px auto 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 80px auto 0;
+  }
 }
 
 .noscroll {
@@ -118,6 +122,8 @@ section {
 }
 
 .hero-section {
+  margin-top: 0;
+
   @media screen and (min-width: 768px) {
     position: relative;
     margin: 0 auto;
@@ -268,10 +274,6 @@ section {
   }
 }
 
-.video-section {
-  margin-top: 40px;
-}
-
 .video-flexbox {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -380,6 +382,7 @@ section {
     max-width: 900px;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     @media screen and (min-width: 769px) {
       flex-direction: row;
@@ -397,14 +400,15 @@ section {
   font-style: italic;
   font-weight: 500;
   width: 100%;
+  line-height: normal;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 769px) {
     max-width: 200px;
   }
 }
 
 .event-date {
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 769px) {
     margin: 0 10px 0 auto;
     text-align: right;
   }
@@ -413,7 +417,7 @@ section {
 .event-info {
   width: 100%;
 
-  @media screen and (min-width: 700px) {
+  @media screen and (min-width: 769px) {
     text-align: right;
     margin: 0 auto 0 60px;
     max-width: 400px;
@@ -424,11 +428,17 @@ section {
   font-size: 20px;
   font-style: italic;
   font-weight: 300;
+  line-height: normal;
 }
 
 .summary {
   font-size: 27px;
   font-weight: 500;
+  margin-right: 130px;
+  line-height: normal;
+  @media screen and (min-width: 769px) {
+   margin-right: 0;
+  }
 }
 
 .tickets {
@@ -438,6 +448,13 @@ section {
   font-style: italic;
   transition: all 0.3s;
   font-size: 27px;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+
+  @media screen and (min-width: 769px) {
+    position: static;
+  }
 
   &:hover {
     color: #A1C6EA;
@@ -495,11 +512,15 @@ section {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   text-decoration: none;
-  height: 30px;
+  height: 45px;
   width: 100%;
   max-width: 300px;
   margin: 20px auto;
   border-radius: 5px;
+  align-items: center;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 22px;
 
   @media screen and (min-width: 700px) {
     margin: 20px 0 0 auto;
@@ -513,4 +534,19 @@ section {
   height: auto;
   margin: 0 auto;
   image-rendering: crisp-edges;
+}
+
+.textPeet {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+#news {
+  @media screen and (min-width: 700px) {
+    margin-top: 0;
+  }
 }

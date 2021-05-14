@@ -296,7 +296,7 @@
                     summary = result.summary || '',
                     description = result.description || '',
                     location = result.location || '',
-                    cleanUrl = description.match(/\bhttps?:\/\/\S+/gi)[0] || '',
+                    cleanUrl = description && description.match(/\bhttps?:\/\/\S+/gi)[0] || '',
                     i;
 
                 for (i = 0; i < format.length; i++) {

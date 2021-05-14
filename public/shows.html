@@ -25,7 +25,10 @@
     <script src="./production/js/scripts.js"></script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,300;1,500;1,900&family=Lato:wght@400;900&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./production/css/index.css">
     <link rel="stylesheet" type="text/css" href="./node_modules/aos/dist/aos.css" />
 </head>
@@ -33,10 +36,10 @@
 <body>
     <div class="wrapper">
         <nav class="navigation" id="websiteNavigation">
-            <!-- <a class="navlink" onclick="clickedNavLink()" href="#shows">Live Shows</a> -->
+            <a class="navlink" onclick="clickedNavLink()" href="/">Home</a>
             <a class="navlink" onclick="clickedNavLink()" href="/#videos">Videos</a>
             <a class="navlink" onclick="clickedNavLink()" href="https://tryhard.cool/" target="_blank">Merch</a>
-            <a class="navlink" onclick="clickedNavLink()" href="">Bio</a>
+            <a class="navlink" onclick="clickedNavLink()" href="/#bio">Bio</a>
             <a class="navlink" onclick="clickedNavLink()" href="/#contact">Contact</a>
         </nav>
         <svg class="ham hamRotate ham8" id="hamburger" viewBox="0 0 100 100" width="45" onclick="responsiveNav()">
@@ -62,13 +65,20 @@
             <a target="_blank" href="https://www.facebook.com/peetguercio">
                 <img class="social-icons" src="./production/images/facebook_square.svg" alt="Facebook">
             </a>
+            <a target="_blank" href="https://www.patreon.com/peetguercio">
+                <img class="social-icons" src="./production/images/patreon-social.png" alt="Patreon">
+            </a>
         </div>
     </div>
     <section class="bio-section">
         <a class="close-btn" href="index.html"></a>
         <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000" class="subhead"
             src="./production/images/liveshows.png" alt="Bio">
-        <h3 data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" class="h3-headline">To stay updated with Peet's live tour schedule, text PEET to 31996!</h3><p><h3 data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" class="h3-headline">Want Peet to perform at your school or club? Contact biz@peetguercio.com</h3>
+        <ul id="events-upcoming"></ul>
+        <h3 data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" class="h3-headline">To
+            stay updated with Peet's live tour schedule, text PEET to 31996!</h3><br />
+        <h3 data-aos="fade-up" data-aos-delay="500" data-aos-once="true" data-aos-duration="1000" class="h3-headline">
+            Want Peet to perform at your school or club? Contact biz@peetguercio.com</h3>
     </section>
     <section class="contact-section" id="contact">
         <img data-aos="fade-up" data-aos-delay="250" data-aos-once="true" data-aos-duration="1000"
@@ -87,10 +97,19 @@
         </div>
     </section>
     <section class="footer">
-        <p class="footer-text">©2020 Peet Guercio. All rights reserved.</p>
+        <p class="footer-text">©2021 Peet Guercio. All rights reserved.</p>
     </section>
     <script>
         AOS.init();
+
+        formatGoogleCalendar.init({
+            calendarUrl: 'https://www.googleapis.com/calendar/v3/calendars/g27.net_9ht2e4uhfh602mnen6psa6mun0@group.calendar.google.com/events?key=AIzaSyBgnhLwWs3CJfpYpBfoPsUGyoUsYzmLjEk',
+            past: false,
+            recurringEvents: false,
+            timeMin: '2021-03-23T10:00:00-07:00',
+            timeMax: '2025-06-03T10:00:00-07:00',
+            upcomingTopN: -1,
+        });
     </script>
 </body>
 
