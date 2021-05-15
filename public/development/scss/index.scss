@@ -5,6 +5,7 @@ body {
   color: #fff;
 }
 
+//Everything on the page in a content area is broken into a section. The margin controls the distance between each one
 section {
   width: 100%;
   max-width: 1080px;
@@ -373,6 +374,7 @@ section {
   text-transform: uppercase;
 
   li {
+    //This is the padding between each show. If you need to edit bottom and top it would look like this: padding: 5px 20px 10px;
     padding: 10px 20px;
     width: 100%;
     max-width: 900px;
@@ -401,7 +403,7 @@ section {
   font-style: italic;
   font-weight: 500;
   width: 100%;
-  line-height: normal;
+  line-height: 1;
 
   @media screen and (min-width: 769px) {
     max-width: 200px;
@@ -468,9 +470,14 @@ section {
   padding: 0 20px;
   position: relative;
 
+  // This will control font-size for all Paragraph tags. If you need to get more granular we can add this to specific sections
   p {
     font-size: 16px;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 769px) {
+      font-size: 20px;
+    }
   }
 }
 
