@@ -189,14 +189,6 @@
                 for (i in upcomingResult) {
                     upcomingElem.insertAdjacentHTML('beforeend', transformationList(upcomingResult[i], settings.itemsTagName, settings.format));
                 }
-
-                if (upcomingElem.firstChild) {
-                    upcomingElem.insertAdjacentHTML('beforebegin', settings.upcomingHeading);
-                }
-
-                if (pastElem.firstChild) {
-                    pastElem.insertAdjacentHTML('beforebegin', settings.pastHeading);
-                }
             };
 
             //Gets JSON from Google Calendar and transfroms it into html list items and appends it to past or upcoming events list
@@ -296,7 +288,7 @@
                     summary = result.summary || '',
                     description = result.description || '',
                     location = result.location || '',
-                    cleanUrl = description && description.match(/\bhttps?:\/\/\S+/gi)[0] || '',
+                    cleanUrl = result.description && result.description.match(/\bhttps?:\/\/\S+/gi) || '',
                     i;
 
                 for (i = 0; i < format.length; i++) {
@@ -307,7 +299,7 @@
                     } else if (format[i] === '*date*') {
                         output = output.concat('<div class="date">' + dateFormatted + '</div>');
                     } else if (format[i] === '*description*') {
-                        output = output.concat((description !== '') ? '<a class="tickets" href=' + cleanUrl + ' target="_blank">Tickets</a>' : '');
+                        output = output.concat((cleanUrl !== '') ? '<a class="tickets" href=' + cleanUrl + ' target="_blank">Tickets</a>' : '');
                     } else if (format[i] === '*location*') {
                         output = output.concat((location !== '') ? '<p class="location">' + location + '</p></div>' : '');
                     } else {
