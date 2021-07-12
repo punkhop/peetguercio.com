@@ -297,7 +297,7 @@
                     if (format[i] === '*summary*') {
                         output = output.concat('<div class="event-info"><p class="summary" itemprop="description">' + summary + '</p>');
                     } else if (format[i] === '*date*') {
-                        output = output.concat('<meta itemprop="name" content="Peet Guercio" /><div class="date"><time itemprop="startDate" datetime=' + result.start.dateTime + '>' + dateFormatted + '<time><time itemprop="endDate" datetime=' + result.end.dateTime + ' /></div>');
+                        output = output.concat('<meta itemprop="name" content="Peet Guercio" /><div class="date"><time itemprop="startDate" datetime=' + result.start.dateTime + '>' + dateFormatted + '</time><time itemprop="endDate" datetime=' + result.end.dateTime + ' /></div>');
                     } else if (format[i] === '*description*') {
                         output = output.concat((cleanUrl !== '') ? '<a class="tickets" href=' + cleanUrl + ' target="_blank" itemprop="url">Tickets</a>' : '');
                     } else if (format[i] === '*location*') {
