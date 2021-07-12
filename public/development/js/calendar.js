@@ -295,13 +295,13 @@
                     format[i] = format[i].toString();
 
                     if (format[i] === '*summary*') {
-                        output = output.concat('<div class="event-info"><p class="summary">' + summary + '</p>');
+                        output = output.concat('<div class="event-info"><p class="summary" itemprop="description">' + summary + '</p>');
                     } else if (format[i] === '*date*') {
-                        output = output.concat('<div class="date">' + dateFormatted + '</div>');
+                        output = output.concat('<meta itemprop="name" content="Peet Guercio" /><div class="date"><time itemprop="startDate" datetime=' + result.start.dateTime + '>' + dateFormatted + '<time></div><time itemprop="endDate" datetime=' + result.end.dateTime + ' />');
                     } else if (format[i] === '*description*') {
-                        output = output.concat((cleanUrl !== '') ? '<a class="tickets" href=' + cleanUrl + ' target="_blank">Tickets</a>' : '');
+                        output = output.concat((cleanUrl !== '') ? '<a class="tickets" href=' + cleanUrl + ' target="_blank" itemprop="url">Tickets</a>' : '');
                     } else if (format[i] === '*location*') {
-                        output = output.concat((location !== '') ? '<p class="location">' + location + '</p></div>' : '');
+                        output = output.concat((location !== '') ? '<p class="location" itemprop="location">' + location + '</p></div>' : '');
                     } else {
                         if (format[i + 1] === '*location*' && location !== '' || format[i + 1] === '*summary*' && summary !== '' || format[i + 1] === '*date*' && dateFormatted !== '' || format[i + 1] === '*description*' && description !== '') {
 
