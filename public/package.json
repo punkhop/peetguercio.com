@@ -21,7 +21,7 @@
         "autoprefixer": "9.8.4",
         "browser-sync": "2.18.8",
         "eslint": "7.4.0",
-        "node-sass": "^6.0.0",
+        "node-sass": "^7.0.0",
         "npm-run-all": "4.0.2",
         "onchange": "7.0.2",
         "postcss-cli": "7.1.1",
