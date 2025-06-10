@@ -282,6 +282,25 @@
             color: #6c757d;
         }
         
+        .screen-wake-hint {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .screen-wake-hint.show {
+            opacity: 1;
+        }
+        
         .hidden { 
             display: none; 
         }
@@ -374,26 +393,6 @@
                 font-size: 16px !important;
             }
         }
-        
-        /* Keep screen awake hint */
-        .screen-wake-hint {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .screen-wake-hint.show {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -421,11 +420,11 @@
         </div>
         
         <div class="controls">
-            <button class="btn btn-primary" id="playPauseBtn" onclick="togglePlayPause()">▶️</button>
-            <button class="btn btn-outline" id="stopBtn" onclick="stopRoutine()">⏹️</button>
-            <button class="btn btn-outline" onclick="goBack()">⏮️</button>
-            <button class="btn btn-outline" onclick="skipNext()">⏭️</button>
-            <button class="btn btn-outline" onclick="toggleSettings()">⚙️</button>
+            <button class="btn btn-primary" id="playPauseBtn">▶️</button>
+            <button class="btn btn-outline" id="stopBtn">⏹️</button>
+            <button class="btn btn-outline" id="backBtn">⏮️</button>
+            <button class="btn btn-outline" id="skipBtn">⏭️</button>
+            <button class="btn btn-outline" id="settingsBtn">⚙️</button>
         </div>
         
         <div class="screen-wake-hint" id="screenWakeHint">
@@ -441,7 +440,7 @@
                         <select id="voiceSelect">
                             <option value="">Loading voices...</option>
                         </select>
-                        <button class="btn btn-outline" style="margin-top: 8px; padding: 6px 12px; font-size: 0.8em;" onclick="testVoice()">Test Voice</button>
+                        <button class="btn btn-outline" style="margin-top: 8px; padding: 6px 12px; font-size: 0.8em;" id="testVoiceBtn">Test Voice</button>
                     </div>
                     
                     <div class="setting-group">
@@ -486,7 +485,7 @@
                     <option value="both">Left & Right</option>
                 </select>
                 <input type="text" id="newStretchTarget" placeholder="Target area">
-                <button class="btn btn-primary" onclick="addStretch()" style="margin-top: 10px;">Add Stretch</button>
+                <button class="btn btn-primary" id="addStretchBtn" style="margin-top: 10px;">Add Stretch</button>
             </div>
         </div>
     </div>
@@ -746,10 +745,6 @@
                 return bestVoices.includes(name);
             });
             
-            // Debug: Log what voices we found
-            console.log('Available voices:', voices.map(v => v.name));
-            console.log('Filtered quality voices:', qualityVoices.map(v => v.name));
-            
             // Add the quality voices to the dropdown
             qualityVoices.forEach((voice) => {
                 const option = document.createElement('option');
@@ -800,12 +795,11 @@
                 utterance.voice = selectedVoice;
             }
             
-            // Ensure audio plays on mobile
-            utterance.onstart = function() {
-                console.log('Speech started');
-            };
-            
             synth.speak(utterance);
+        }
+
+        function testVoice() {
+            speak("This is how your selected voice sounds. Ready to stretch?");
         }
 
         // Wake lock functionality for keeping screen awake
@@ -854,10 +848,6 @@
                 showScreenWakeHint();
                 lastInteraction = Date.now(); // Reset timer
             }
-        }
-
-        function testVoice() {
-            speak("This is how your selected voice sounds. Ready to stretch?");
         }
 
         function calculateTotalTime() {
@@ -940,14 +930,14 @@
                 isRunning = false;
                 clearInterval(timer);
                 document.getElementById('playPauseBtn').textContent = '▶️';
-                releaseWakeLock(); // Allow screen to sleep when paused
+                releaseWakeLock();
             } else if (isPaused) {
                 // Currently paused, so resume
                 isPaused = false;
                 isRunning = true;
                 timer = setInterval(tick, 1000);
                 document.getElementById('playPauseBtn').textContent = '⏸️';
-                requestWakeLock(); // Keep screen awake
+                requestWakeLock();
             } else {
                 // Not started yet, so start
                 startRoutine();
@@ -976,12 +966,7 @@
             document.getElementById('playPauseBtn').textContent = '⏸️';
             document.getElementById('transitionIndicator').classList.add('hidden');
             
-            requestWakeLock(); // Keep screen awake during workout
-        }
-
-        function pauseRoutine() {
-            // This function is now handled by togglePlayPause
-            togglePlayPause();
+            requestWakeLock();
         }
 
         function stopRoutine() {
@@ -1004,7 +989,7 @@
             document.getElementById('transitionIndicator').classList.add('hidden');
             
             speak("Routine stopped");
-            releaseWakeLock(); // Allow screen to sleep when stopped
+            releaseWakeLock();
         }
 
         function tick() {
@@ -1012,13 +997,25 @@
 
             timeRemaining--;
             
-            // Only announce "five" at 5 seconds remaining
-            if (!isTransition && timeRemaining === 5) {
-                speak("Five");
-            }
-            
-            if (timeRemaining <= 0) {
-                moveToNextStretch();
+            if (isTransition) {
+                // During transition time
+                if (timeRemaining <= 0) {
+                    // Transition over, start the actual stretch
+                    const current = stretches[currentStretchIndex];
+                    isTransition = false;
+                    timeRemaining = current.duration;
+                    document.getElementById('transitionIndicator').classList.add('hidden');
+                    speak("Begin");
+                }
+            } else {
+                // During actual stretch time
+                if (timeRemaining === 5) {
+                    speak("Five");
+                }
+                
+                if (timeRemaining <= 0) {
+                    moveToNextStretch();
+                }
             }
             
             updateDisplay();
@@ -1035,35 +1032,88 @@
             const current = stretches[currentStretchIndex];
             const previous = stretches[currentStretchIndex - 1];
             
-            // Check if this is the same stretch but different side
-            const isSameSretchDifferentSide = current.name === previous.name && 
-                                             previous.sides === "right" && 
-                                             current.sides === "left";
+            // Check if this is the same stretch but different side (right -> left)
+            const isSameStretchDifferentSide = current.name === previous.name && 
+                                               previous.sides === "right" && 
+                                               current.sides === "left";
             
-            if (isSameSretchDifferentSide) {
-                // Just say the side and start immediately
+            if (isSameStretchDifferentSide) {
+                // For same stretch going from right to left, just say "Left" and start immediately
                 speak("Left");
                 timeRemaining = current.duration;
                 isTransition = false;
                 document.getElementById('transitionIndicator').classList.add('hidden');
             } else {
-                // Check if we need transition time for different stretches
-                let needsTransition = current.name !== previous.name;
+                // Different stretch - need transition time
+                isTransition = true;
+                timeRemaining = parseInt(document.getElementById('transitionTime').value);
+                document.getElementById('transitionIndicator').classList.remove('hidden');
                 
-                if (needsTransition) {
-                    isTransition = true;
-                    timeRemaining = parseInt(document.getElementById('transitionTime').value);
-                    document.getElementById('transitionIndicator').classList.remove('hidden');
-                    
-                    // Just announce the next stretch name during transition
-                    speak(current.name);
-                } else {
-                    // Same stretch, no transition
-                    isTransition = false;
-                    timeRemaining = current.duration;
-                    document.getElementById('transitionIndicator').classList.add('hidden');
+                // Announce the next stretch name during transition
+                let announcement = current.name;
+                if (current.sides === "right") {
+                    announcement += " right";
                 }
+                speak(announcement);
             }
+        }
+
+        function skipNext() {
+            // Skip works in any state - running, paused, or stopped
+            if (currentStretchIndex >= stretches.length - 1) return; // Can't skip past last stretch
+            
+            // Move to next stretch
+            currentStretchIndex++;
+            
+            const current = stretches[currentStretchIndex];
+            
+            // Reset to the stretch (not transition)
+            isTransition = false;
+            timeRemaining = current.duration;
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            // Voice announcement
+            let announcement = current.name;
+            if (current.sides === "right") {
+                announcement += " right";
+            } else if (current.sides === "left") {
+                announcement += " left";
+            }
+            
+            if (isRunning || isPaused) {
+                speak(announcement);
+            }
+            
+            updateDisplay();
+        }
+
+        function goBack() {
+            // Back works in any state - running, paused, or stopped
+            if (currentStretchIndex <= 0) return; // Can't go back from first stretch
+            
+            // Move to previous stretch
+            currentStretchIndex--;
+            
+            const current = stretches[currentStretchIndex];
+            
+            // Reset to the stretch (not transition)
+            isTransition = false;
+            timeRemaining = current.duration;
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            // Voice announcement
+            let announcement = current.name;
+            if (current.sides === "right") {
+                announcement += " right";
+            } else if (current.sides === "left") {
+                announcement += " left";
+            }
+            
+            if (isRunning || isPaused) {
+                speak(announcement);
+            }
+            
+            updateDisplay();
         }
 
         function completeRoutine() {
@@ -1071,7 +1121,7 @@
             isTransition = false;
             clearInterval(timer);
             
-            speak("Excellent work! You have completed your full stretching routine. Your body is now properly stretched and ready for activity. Great job taking care of yourself!");
+            speak("Complete");
             
             document.getElementById('stretchName').textContent = 'Routine Complete! 🎉';
             document.getElementById('stretchSide').textContent = '';
@@ -1081,7 +1131,7 @@
             document.getElementById('progressFill').style.width = '100%';
             document.getElementById('transitionIndicator').classList.add('hidden');
             
-            releaseWakeLock(); // Allow screen to sleep when complete
+            releaseWakeLock();
         }
 
         function toggleSettings() {
@@ -1194,7 +1244,15 @@
             }
         }
 
-        // Event listeners for settings
+        // Event listeners
+        document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
+        document.getElementById('stopBtn').addEventListener('click', stopRoutine);
+        document.getElementById('backBtn').addEventListener('click', goBack);
+        document.getElementById('skipBtn').addEventListener('click', skipNext);
+        document.getElementById('settingsBtn').addEventListener('click', toggleSettings);
+        document.getElementById('testVoiceBtn').addEventListener('click', testVoice);
+        document.getElementById('addStretchBtn').addEventListener('click', addStretch);
+
         document.getElementById('voiceSpeed').addEventListener('input', function() {
             voiceSpeed = parseFloat(this.value);
             document.getElementById('speedValue').textContent = voiceSpeed.toFixed(1) + 'x';
@@ -1228,28 +1286,21 @@
             }
         });
 
-        // Initialize
-        updateDisplay();
-        updateStretchList();
-        updateTotalTime();
-
         // Mobile-specific event listeners
         document.addEventListener('touchstart', trackInteraction, { passive: true });
         document.addEventListener('touchend', trackInteraction, { passive: true });
         document.addEventListener('click', trackInteraction);
 
         // Check for screen wake periodically during workout
-        setInterval(checkScreenWake, 10000); // Check every 10 seconds
+        setInterval(checkScreenWake, 10000);
 
-        // Handle page visibility changes (app going to background)
+        // Handle page visibility changes
         document.addEventListener('visibilitychange', function() {
             if (document.hidden && isRunning) {
-                // App went to background during workout
                 console.log('App backgrounded during workout');
             } else if (!document.hidden && isRunning) {
-                // App came back to foreground
                 console.log('App foregrounded during workout');
-                requestWakeLock(); // Re-request wake lock
+                requestWakeLock();
             }
         });
 
@@ -1262,6 +1313,11 @@
             }
             lastTouchEnd = now;
         }, false);
+
+        // Initialize
+        updateDisplay();
+        updateStretchList();
+        updateTotalTime();
     </script>
 </body>
 </html>
