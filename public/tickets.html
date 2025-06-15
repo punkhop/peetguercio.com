@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crow - Your Tickets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .email-container {
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            background: #FFFFFF;
+        }
+
+        .email-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 24px 32px;
+            gap: 24px;
+            width: 100%;
+            background: #FFFFFF;
+            box-sizing: border-box;
+        }
+
+        /* Header Logo */
+        .logo-container {
+            width: 44px;
+            height: 44px;
+            background: #FFFFFF;
+            border-radius: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            background: #000000;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 6px 8px;
+            border-radius: 4px;
+        }
+
+        /* Subject Line */
+        .subject-line {
+            width: 616px;
+            font-family: 'Inter';
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 150%;
+            text-align: center;
+            color: #0D1526;
+        }
+
+        /* Event Title Section */
+        .event-title-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 24px;
+            width: 616px;
+        }
+
+        .event-name-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 8px;
+            width: 616px;
+        }
+
+        .event-name {
+            width: 616px;
+            font-family: 'Inter';
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 150%;
+            color: #0D1526;
+        }
+
+        .event-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 8px;
+            width: 350px;
+        }
+
+        .event-details-text {
+            width: 350px;
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            color: #0D1526;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 8px;
+            width: 616px;
+            background: #F9FAFB;
+            border-radius: 8px;
+        }
+
+        .order-summary-title {
+            width: 576px;
+            font-family: 'Inter';
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: #111928;
+        }
+
+        .order-summary-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+            gap: 16px;
+            width: 576px;
+        }
+
+        /* Line Items */
+        .line-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0px 0px 16px;
+            gap: 16px;
+            width: 576px;
+            border-bottom: 1px solid #EFEFF1;
+        }
+
+        .line-item-label {
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            color: #666C79;
+        }
+
+        .line-item-value {
+            font-family: 'Inter';
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 150%;
+            color: #666C79;
+        }
+
+        /* Subtotals Section */
+        .subtotals {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px 0px 16px;
+            gap: 8px;
+            width: 576px;
+            border-bottom: 1px solid #EFEFF1;
+        }
+
+        .subtotal-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            width: 576px;
+        }
+
+        /* Discount Section */
+        .discount-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px 0px 16px;
+            gap: 8px;
+            width: 576px;
+            border-bottom: 1px solid #EFEFF1;
+        }
+
+        /* Total */
+        .total-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            width: 576px;
+        }
+
+        .total-label {
+            font-family: 'Inter';
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: #0D1526;
+        }
+
+        .total-value {
+            font-family: 'Inter';
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 150%;
+            color: #0D1526;
+        }
+
+        /* Footer */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 0px;
+            gap: 8px;
+            width: 616px;
+            border-top: 1px solid #D4D6D9;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px;
+            width: 616px;
+            gap: 4px;
+        }
+
+        .contact-text {
+            font-family: 'Helvetica Neue';
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 140%;
+            color: #1C64F2;
+            text-decoration: none;
+        }
+
+        .arrow-icon {
+            width: 16px;
+            height: 16px;
+            background: #1C64F2;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M7 17L17 7M17 7H7M17 7V17' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+        }
+
+        .footer-text {
+            width: 616px;
+            font-family: 'Helvetica Neue';
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 150%;
+            color: #666C79;
+        }
+
+        .footer-text a {
+            color: #1C64F2;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 720px) {
+            body {
+                padding: 8px;
+                margin: 0;
+            }
+            
+            .email-container {
+                width: 100%;
+                margin: 0;
+            }
+            
+            .email-content {
+                width: 100%;
+                padding: 24px 16px;
+            }
+            
+            .logo-container {
+                width: 44px;
+                height: 44px;
+            }
+            
+            .subject-line,
+            .event-title-section,
+            .event-name-container,
+            .event-name,
+            .order-summary,
+            .footer {
+                width: 100%;
+            }
+            
+            .order-summary {
+                padding: 16px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .order-summary-title,
+            .order-summary-content,
+            .line-item,
+            .subtotals,
+            .subtotal-row,
+            .discount-section,
+            .total-row,
+            .contact-link,
+            .footer-text {
+                width: 100%;
+            }
+            
+            .event-details,
+            .event-details-text {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-content">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo">THE CROW</div>
+            </div>
+
+            <!-- Subject Line -->
+            <div class="subject-line">Here are your tickets!</div>
+
+            <!-- Event Title Section -->
+            <div class="event-title-section">
+                <div class="event-name-container">
+                    <div class="event-name">Comedy Confessional</div>
+                    <div class="event-details">
+                        <div class="event-details-text">
+                            Thu, Oct 24 2024, 11:00PM (Doors: 10:30PM)<br><br>
+                            The Crow<br>
+                            7702 Santa Monica Blvd, Los Angeles, CA 90046<br><br>
+                            <em>Your tickets are attached to this email.</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <div class="order-summary-title">Order summary</div>
+                <div class="order-summary-content">
+                    <!-- Line Item -->
+                    <div class="line-item">
+                        <div class="line-item-label">General Admission x 3</div>
+                        <div class="line-item-value">$20.00</div>
+                    </div>
+
+                    <!-- Subtotals -->
+                    <div class="subtotals">
+                        <div class="subtotal-row">
+                            <div class="line-item-label">Subtotal</div>
+                            <div class="line-item-value">$60.00</div>
+                        </div>
+                        <div class="subtotal-row">
+                            <div class="line-item-label">Fees</div>
+                            <div class="line-item-value">$13.44</div>
+                        </div>
+                        <div class="subtotal-row">
+                            <div class="line-item-label">Taxes</div>
+                            <div class="line-item-value">$8.31</div>
+                        </div>
+                    </div>
+
+                    <!-- Discount -->
+                    <div class="discount-section">
+                        <div class="subtotal-row">
+                            <div class="line-item-label">Promo code discounts</div>
+                            <div class="line-item-value">-$30.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="total-row">
+                        <div class="total-label">Total</div>
+                        <div class="total-value">$56.75</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <a href="#" class="contact-link">
+                    <span class="contact-text">Contact Support</span>
+                    <div class="arrow-icon"></div>
+                </a>
+                <div class="footer-text">
+                    This is an automated email. If you have any questions or issues, please contact The Crow at <a href="mailto:info@crowcomedy.com">info@crowcomedy.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
