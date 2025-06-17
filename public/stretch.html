@@ -548,7 +548,7 @@
                 searchTerms: "90 90 hip stretch seated figure four"
             },
             { 
-                name: "Child's Pose with Side Reach", 
+                name: "Child's Pose Side Reach", 
                 target: "Lower back, lats", 
                 duration: 30, 
                 sides: "center", 
@@ -596,16 +596,7 @@
                 name: "Doorway Pec Stretch", 
                 target: "Chest, anterior shoulders", 
                 duration: 60, 
-                sides: "right", 
-                icon: "🚪",
-                description: "Arm against doorframe, lean forward",
-                searchTerms: "doorway pec stretch chest shoulder"
-            },
-            { 
-                name: "Doorway Pec Stretch", 
-                target: "Chest, anterior shoulders", 
-                duration: 60, 
-                sides: "left", 
+                sides: "none", 
                 icon: "🚪",
                 description: "Arm against doorframe, lean forward",
                 searchTerms: "doorway pec stretch chest shoulder"
@@ -1032,14 +1023,21 @@
             const current = stretches[currentStretchIndex];
             const previous = stretches[currentStretchIndex - 1];
             
-            // Check if this is the same stretch but different side (right -> left)
-            const isSameStretchDifferentSide = current.name === previous.name && 
-                                               previous.sides === "right" && 
-                                               current.sides === "left";
+            // Check if this is the same stretch but different side (right → left OR center → right)
+            const isSameStretchSequence = current.name === previous.name && 
+                                         ((previous.sides === "right" && current.sides === "left") ||
+                                          (previous.sides === "center" && current.sides === "right") ||
+                                          (previous.sides === "right" && current.sides === "left"));
             
-            if (isSameStretchDifferentSide) {
-                // For same stretch going from right to left, just say "Left" and start immediately
-                speak("Left");
+            if (isSameStretchSequence) {
+                // For same stretch sequence, just say the side and start immediately
+                if (current.sides === "left") {
+                    speak("Left");
+                } else if (current.sides === "right") {
+                    speak("Right");
+                } else if (current.sides === "center") {
+                    speak("Center");
+                }
                 timeRemaining = current.duration;
                 isTransition = false;
                 document.getElementById('transitionIndicator').classList.add('hidden');
@@ -1053,6 +1051,8 @@
                 let announcement = current.name;
                 if (current.sides === "right") {
                     announcement += " right";
+                } else if (current.sides === "center") {
+                    announcement += " center";
                 }
                 speak(announcement);
             }
