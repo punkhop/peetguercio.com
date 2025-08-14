@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foam Rolling Guide - Voice Guided Routine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            color: #2c3e50;
+            line-height: 1.5;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        
+        .main-display {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #e9ecef;
+        }
+        
+        .roll-name {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .roll-side {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        
+        .roll-info {
+            color: #495057;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .roll-instructions {
+            color: #6c757d;
+            font-size: 0.95em;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        .timer-display {
+            font-size: 3.5em;
+            font-weight: 300;
+            color: #495057;
+            margin: 25px 0;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 15px;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 15px 0 25px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #495057;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .transition-indicator {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 20px 0;
+            text-align: center;
+            color: #856404;
+            font-size: 0.9em;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 16px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.4em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 60px;
+            min-height: 60px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: #495057;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #343a40;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #495057;
+            border: 1px solid #dee2e6;
+        }
+        
+        .btn-outline:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+        
+        .settings-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+        
+        .settings-panel h2 {
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .settings-panel h3 {
+            margin: 25px 0 15px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .setting-group {
+            margin-bottom: 20px;
+        }
+        
+        .setting-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #495057;
+            font-size: 0.9em;
+        }
+        
+        .setting-group input, .setting-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1.1em;
+            background: white;
+            min-height: 44px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        .setting-group input:focus, .setting-group select:focus {
+            outline: none;
+            border-color: #495057;
+            box-shadow: 0 0 0 2px rgba(73, 80, 87, 0.1);
+        }
+        
+        .setting-group small {
+            color: #6c757d;
+            font-size: 0.8em;
+            margin-top: 4px;
+            display: block;
+        }
+        
+        .roll-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        
+        .roll-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .roll-details {
+            flex-grow: 1;
+        }
+        
+        .roll-title {
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+        
+        .roll-meta {
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+        
+        .screen-wake-hint {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .screen-wake-hint.show {
+            opacity: 1;
+        }
+        
+        .hidden { 
+            display: none; 
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .main-display {
+                padding: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .controls {
+                gap: 12px;
+            }
+            
+            .btn {
+                min-width: 55px;
+                min-height: 55px;
+                padding: 14px 16px;
+                font-size: 1.3em;
+            }
+            
+            .roll-name {
+                font-size: 1.4em;
+            }
+            
+            .timer-display {
+                font-size: 3em;
+                margin: 20px 0;
+            }
+            
+            .progress-info {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 1em;
+            }
+            
+            .settings-panel {
+                padding: 20px;
+            }
+            
+            .settings-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .setting-group input, .setting-group select {
+                font-size: 1.2em;
+                padding: 14px 16px;
+                min-height: 48px;
+            }
+            
+            .header h1 {
+                font-size: 4em;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .timer-display {
+                font-size: 2.5em;
+            }
+            
+            .roll-name {
+                font-size: 1.2em;
+            }
+            
+            .main-display {
+                padding: 15px;
+            }
+            
+            .btn {
+                min-width: 50px;
+                min-height: 50px;
+                padding: 12px 14px;
+                font-size: 1.2em;
+            }
+        }
+        
+        /* Prevent zoom on iOS when focusing inputs */
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            select, textarea, input[type="text"], input[type="number"] {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🔴</h1>
+        </header>
+        
+        <div class="main-display" id="mainDisplay">
+            <div class="roll-name" id="rollName">Ready to Roll</div>
+            <div class="roll-side" id="rollSide"></div>
+            <div class="roll-info" id="rollInfo">Press Start to begin your foam rolling routine</div>
+            <div class="roll-instructions" id="rollInstructions"></div>
+            <div class="timer-display" id="timerDisplay">0:00</div>
+            <div class="progress-info">
+                <span id="currentRoll">Exercise 0 of 0</span>
+                <span id="timeRemaining">Total: 0:00</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="transition-indicator hidden" id="transitionIndicator">
+                🔄 Transition time - Get ready for the next area
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-primary" id="playPauseBtn">▶️</button>
+            <button class="btn btn-outline" id="stopBtn">⏹️</button>
+            <button class="btn btn-outline" id="backBtn">⏮️</button>
+            <button class="btn btn-outline" id="skipBtn">⏭️</button>
+            <button class="btn btn-outline" id="settingsBtn">⚙️</button>
+        </div>
+        
+        <div class="screen-wake-hint hidden" id="screenWakeHint">
+            Tap screen occasionally to keep it awake
+        </div>
+        
+        <div class="settings-panel hidden" id="settingsPanel">
+            <h2>Settings</h2>
+            <div class="settings-grid">
+                <div>
+                    <div class="setting-group">
+                        <label>Voice</label>
+                        <select id="voiceSelect">
+                            <option value="">Loading voices...</option>
+                        </select>
+                        <button class="btn btn-outline" style="margin-top: 8px; padding: 6px 12px; font-size: 0.8em;" id="testVoiceBtn">Test Voice</button>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>Voice Speed</label>
+                        <input type="range" id="voiceSpeed" min="0.5" max="2" step="0.1" value="1">
+                        <span id="speedValue">1.0x</span>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>Voice Pitch</label>
+                        <input type="range" id="voicePitch" min="0.5" max="2" step="0.1" value="1">
+                        <span id="pitchValue">1.0</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="setting-group">
+                        <label>Transition Time</label>
+                        <input type="number" id="transitionTime" min="0" max="30" value="0">
+                        <small>Seconds between different exercises</small>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>Countdown Warning</label>
+                        <input type="number" id="countdownWarning" min="3" max="10" value="5">
+                        <small>When to start countdown</small>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Current Routine</h3>
+            <div class="roll-list" id="rollList"></div>
+            
+            <h3>Edit Routine</h3>
+            <div class="setting-group">
+                <label>Add New Exercise</label>
+                <input type="text" id="newRollName" placeholder="Exercise name">
+                <input type="text" id="newRollDescription" placeholder="Instructions (e.g., lie on side, roll hip to knee)">
+                <input type="number" id="newRollDuration" placeholder="Duration (seconds)" value="90">
+                <select id="newRollSides">
+                    <option value="none">No sides</option>
+                    <option value="both">Left & Right</option>
+                </select>
+                <input type="text" id="newRollTarget" placeholder="Target area">
+                <button class="btn btn-primary" id="addRollBtn" style="margin-top: 10px;">Add Exercise</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optimized foam rolling routine for spinal stenosis and Burning Man prep
+        let rolls = [
+            { 
+                name: "Upper Back & Shoulders", 
+                target: "Thoracic spine, rhomboids", 
+                duration: 115, 
+                sides: "none", 
+                icon: "🫸",
+                description: "Roller under shoulder blades, arms crossed, slow roll",
+                searchTerms: "upper back foam roll thoracic spine"
+            },
+            { 
+                name: "Latissimus Dorsi", 
+                target: "Lats, side back", 
+                duration: 58, 
+                sides: "right", 
+                icon: "🪃",
+                description: "On side, roller under armpit, roll down side",
+                searchTerms: "lat foam roll latissimus dorsi side"
+            },
+            { 
+                name: "Latissimus Dorsi", 
+                target: "Lats, side back", 
+                duration: 58, 
+                sides: "left", 
+                icon: "🪃",
+                description: "On side, roller under armpit, roll down side",
+                searchTerms: "lat foam roll latissimus dorsi side"
+            },
+            { 
+                name: "Glutes & Hip Complex", 
+                target: "Glutes, piriformis, hip rotators", 
+                duration: 92, 
+                sides: "right", 
+                icon: "🍑",
+                description: "Sit on roller under your butt. Cross right ankle over left knee (figure-4 shape). Lean toward crossed leg, use hands for support behind you. Roll forward and back on glute.",
+                searchTerms: "glute foam roll piriformis hip"
+            },
+            { 
+                name: "Glutes & Hip Complex", 
+                target: "Glutes, piriformis, hip rotators", 
+                duration: 92, 
+                sides: "left", 
+                icon: "🍑",
+                description: "Sit on roller under your butt. Cross left ankle over right knee (figure-4 shape). Lean toward crossed leg, use hands for support behind you. Roll forward and back on glute.",
+                searchTerms: "glute foam roll piriformis hip"
+            },
+            { 
+                name: "IT Band & Outer Thigh", 
+                target: "IT band, TFL, outer quad", 
+                duration: 92, 
+                sides: "right", 
+                icon: "📏",
+                description: "On side, roller under outer thigh, hip to knee",
+                searchTerms: "IT band foam roll tensor fasciae latae"
+            },
+            { 
+                name: "IT Band & Outer Thigh", 
+                target: "IT band, TFL, outer quad", 
+                duration: 92, 
+                sides: "left", 
+                icon: "📏",
+                description: "On side, roller under outer thigh, hip to knee",
+                searchTerms: "IT band foam roll tensor fasciae latae"
+            },
+            { 
+                name: "Hamstrings & Posterior Chain", 
+                target: "Hamstrings, glute connection", 
+                duration: 92, 
+                sides: "none", 
+                icon: "🦵",
+                description: "Sit with roller under thighs, roll sit bones to knees",
+                searchTerms: "hamstring foam roll posterior chain"
+            },
+            { 
+                name: "Hip Flexors", 
+                target: "Psoas, TFL, quad connection", 
+                duration: 58, 
+                sides: "right", 
+                icon: "🔌",
+                description: "Lie face down, roller under front of right hip. Bend right knee 90 degrees out to side, knee on ground. Roll where thigh meets pelvis.",
+                searchTerms: "hip flexor foam roll psoas TFL"
+            },
+            { 
+                name: "Hip Flexors", 
+                target: "Psoas, TFL, quad connection", 
+                duration: 58, 
+                sides: "left", 
+                icon: "🔌",
+                description: "Lie face down, roller under front of left hip. Bend left knee 90 degrees out to side, knee on ground. Roll where thigh meets pelvis.",
+                searchTerms: "hip flexor foam roll psoas TFL"
+            },
+            { 
+                name: "Calves & Lower Legs", 
+                target: "Gastrocnemius, soleus", 
+                duration: 92, 
+                sides: "none", 
+                icon: "🦵",
+                description: "Sitting, roller under calves, ankle to knee",
+                searchTerms: "calf foam roll gastrocnemius soleus"
+            }
+        ];
+
+        let currentRollIndex = 0;
+        let timeRemaining = 0;
+        let isRunning = false;
+        let isPaused = false;
+        let timer = null;
+        let isTransition = false;
+        let selectedVoice = null;
+        let voices = [];
+        let wakeLock = null;
+        let lastInteraction = Date.now();
+
+        // Speech synthesis
+        let synth = window.speechSynthesis;
+        let voiceSpeed = 1;
+        let voicePitch = 1;
+
+        // Load available voices - only the newest, highest quality AI voices
+        function loadVoices() {
+            voices = synth.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '<option value="">System Default</option>';
+            
+            // Filter for only the highest quality voices
+            const qualityVoices = voices.filter(voice => {
+                const name = voice.name;
+                const lang = voice.lang.toLowerCase();
+                
+                // Must be English
+                if (!lang.includes('en')) return false;
+                
+                // Exclude the definitely bad/old/novelty voices
+                const excludeNames = [
+                    'Bad News', 'Bahh', 'Bells', 'Boing', 'Bubbles', 'Cellos', 'Fred', 
+                    'Good News', 'Jester', 'Junior', 'Kathy', 'Organ', 'Ralph', 
+                    'Superstar', 'Trinoids', 'Whisper', 'Wobble', 'Zarvox'
+                ];
+                
+                if (excludeNames.includes(name)) return false;
+                
+                // Include the best quality voices
+                const bestVoices = [
+                    'Samantha',
+                    'Eddy (English (United States))', 'Eddy (English (United Kingdom))',
+                    'Flo (English (United States))', 'Flo (English (United Kingdom))',
+                    'Grandma (English (United States))', 'Grandma (English (United Kingdom))',
+                    'Grandpa (English (United States))', 'Grandpa (English (United Kingdom))',
+                    'Reed (English (United States))', 'Reed (English (United Kingdom))',
+                    'Rocko (English (United States))', 'Rocko (English (United Kingdom))',
+                    'Sandy (English (United States))', 'Sandy (English (United Kingdom))',
+                    'Shelley (English (United States))', 'Shelley (English (United Kingdom))',
+                    'Google US English', 'Google UK English Female', 'Google UK English Male',
+                    'Aaron', 'Alice', 'Catherine', 'Ellen', 'Nicky', 'Nora'
+                ];
+                
+                return bestVoices.includes(name);
+            });
+            
+            // Add the quality voices to the dropdown
+            qualityVoices.forEach((voice) => {
+                const option = document.createElement('option');
+                option.value = voices.indexOf(voice);
+                option.textContent = voice.name;
+                if (voice.default) {
+                    option.textContent += ' - Default';
+                }
+                voiceSelect.appendChild(option);
+            });
+            
+            // Fallback if no quality voices found
+            if (qualityVoices.length === 0) {
+                const allEnglishVoices = voices.filter(voice => {
+                    return voice.lang.toLowerCase().includes('en');
+                });
+                
+                allEnglishVoices.forEach((voice) => {
+                    const option = document.createElement('option');
+                    option.value = voices.indexOf(voice);
+                    option.textContent = voice.name;
+                    if (voice.default) {
+                        option.textContent += ' - Default';
+                    }
+                    voiceSelect.appendChild(option);
+                });
+            }
+        }
+
+        // Load voices when available
+        if (synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = loadVoices;
+        }
+        setTimeout(loadVoices, 100);
+
+        function speak(text) {
+            if (synth.speaking) {
+                synth.cancel();
+            }
+            
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = voiceSpeed;
+            utterance.pitch = voicePitch;
+            utterance.volume = 0.8;
+            
+            if (selectedVoice) {
+                utterance.voice = selectedVoice;
+            }
+            
+            synth.speak(utterance);
+        }
+
+        function testVoice() {
+            speak("This is how your selected voice sounds. Ready to roll?");
+        }
+
+        // Wake lock functionality for keeping screen awake
+        async function requestWakeLock() {
+            try {
+                if ('wakeLock' in navigator) {
+                    wakeLock = await navigator.wakeLock.request('screen');
+                    console.log('Screen wake lock activated');
+                    
+                    wakeLock.addEventListener('release', () => {
+                        console.log('Screen wake lock released');
+                    });
+                }
+            } catch (err) {
+                console.log('Wake lock not supported or failed:', err);
+                showScreenWakeHint();
+            }
+        }
+
+        async function releaseWakeLock() {
+            if (wakeLock !== null) {
+                try {
+                    await wakeLock.release();
+                    wakeLock = null;
+                } catch (err) {
+                    console.log('Failed to release wake lock:', err);
+                }
+            }
+        }
+
+        function showScreenWakeHint() {
+            // Disabled - iPhone doesn't need this
+            return;
+        }
+
+        function trackInteraction() {
+            lastInteraction = Date.now();
+        }
+
+        function checkScreenWake() {
+            if (isRunning && Date.now() - lastInteraction > 25000) {
+                showScreenWakeHint();
+                lastInteraction = Date.now();
+            }
+        }
+
+        function calculateTotalTime() {
+            let total = 0;
+            const transitionTime = parseInt(document.getElementById('transitionTime').value);
+            
+            rolls.forEach((roll, index) => {
+                total += roll.duration;
+                if (index < rolls.length - 1) {
+                    const current = rolls[index];
+                    const next = rolls[index + 1];
+                    // Add transition time for different exercises
+                    if (current.name !== next.name) {
+                        total += transitionTime;
+                    }
+                }
+            });
+            
+            return total;
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        function getRollIcon(roll) {
+            return roll.icon || "🔴";
+        }
+
+        function updateDisplay() {
+            const current = rolls[currentRollIndex];
+            if (!current) return;
+
+            document.getElementById('rollName').textContent = current.name;
+            
+            let sideText = '';
+            if (current.sides !== "none") {
+                sideText = `(${current.sides.charAt(0).toUpperCase() + current.sides.slice(1)} Side)`;
+            }
+            document.getElementById('rollSide').textContent = sideText;
+            
+            document.getElementById('rollInfo').textContent = current.target;
+            document.getElementById('rollInstructions').textContent = current.description || '';
+            
+            document.getElementById('timerDisplay').textContent = formatTime(timeRemaining);
+            document.getElementById('currentRoll').textContent = `Exercise ${currentRollIndex + 1} of ${rolls.length}`;
+            
+            const totalTime = calculateTotalTime();
+            const elapsed = totalTime - getRemainingTotalTime();
+            const progress = (elapsed / totalTime) * 100;
+            document.getElementById('progressFill').style.width = Math.max(0, progress) + '%';
+            
+            document.getElementById('timeRemaining').textContent = `Remaining: ${formatTime(getRemainingTotalTime())}`;
+        }
+
+        function getRemainingTotalTime() {
+            let total = timeRemaining;
+            const transitionTime = parseInt(document.getElementById('transitionTime').value);
+            
+            for (let i = currentRollIndex + 1; i < rolls.length; i++) {
+                total += rolls[i].duration;
+                if (i < rolls.length - 1) {
+                    const current = rolls[i];
+                    const next = rolls[i + 1];
+                    if (current.name !== next.name) {
+                        total += transitionTime;
+                    }
+                }
+            }
+            
+            return total;
+        }
+
+        function togglePlayPause() {
+            if (isRunning) {
+                isPaused = true;
+                isRunning = false;
+                clearInterval(timer);
+                document.getElementById('playPauseBtn').textContent = '▶️';
+                releaseWakeLock();
+            } else if (isPaused) {
+                isPaused = false;
+                isRunning = true;
+                timer = setInterval(tick, 1000);
+                document.getElementById('playPauseBtn').textContent = '⏸️';
+                requestWakeLock();
+            } else {
+                startRoutine();
+            }
+        }
+
+        function startRoutine() {
+            currentRollIndex = 0;
+            timeRemaining = rolls[0].duration;
+            isRunning = true;
+            isPaused = false;
+            isTransition = false;
+
+            updateDisplay();
+            
+            const current = rolls[0];
+            let announcement = `Begin ${current.name}`;
+            if (current.sides !== "none") {
+                announcement += ` ${current.sides}`;
+            }
+            announcement += ` ${formatTime(current.duration)}`;
+            
+            speak(announcement);
+            
+            timer = setInterval(tick, 1000);
+            document.getElementById('playPauseBtn').textContent = '⏸️';
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            requestWakeLock();
+        }
+
+        function stopRoutine() {
+            isRunning = false;
+            isPaused = false;
+            isTransition = false;
+            clearInterval(timer);
+            currentRollIndex = 0;
+            timeRemaining = 0;
+            
+            document.getElementById('rollName').textContent = 'Ready to Roll';
+            document.getElementById('rollSide').textContent = '';
+            document.getElementById('rollInfo').textContent = 'Press Start to begin your foam rolling routine';
+            document.getElementById('rollInstructions').textContent = '';
+            document.getElementById('timerDisplay').textContent = formatTime(calculateTotalTime());
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('currentRoll').textContent = `Exercise 0 of ${rolls.length}`;
+            document.getElementById('timeRemaining').textContent = `Total: ${formatTime(calculateTotalTime())}`;
+            document.getElementById('playPauseBtn').textContent = '▶️';
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            speak("Routine stopped");
+            releaseWakeLock();
+        }
+
+        function tick() {
+            if (!isRunning) return;
+
+            timeRemaining--;
+            
+            if (isTransition) {
+                // During transition time
+                if (timeRemaining <= 0) {
+                    // Transition over, start the actual exercise
+                    const current = rolls[currentRollIndex];
+                    isTransition = false;
+                    timeRemaining = current.duration;
+                    document.getElementById('transitionIndicator').classList.add('hidden');
+                    speak("Begin");
+                }
+            } else {
+                // During actual exercise time
+                const countdownWarning = parseInt(document.getElementById('countdownWarning').value);
+                if (timeRemaining === countdownWarning) {
+                    speak(`${countdownWarning} seconds`);
+                }
+                
+                if (timeRemaining <= 0) {
+                    moveToNextExercise();
+                }
+            }
+            
+            updateDisplay();
+        }
+
+        function moveToNextExercise() {
+            currentRollIndex++;
+            
+            if (currentRollIndex >= rolls.length) {
+                completeRoutine();
+                return;
+            }
+            
+            const current = rolls[currentRollIndex];
+            const previous = rolls[currentRollIndex - 1];
+            
+            // Check if this is the same exercise but different side
+            const isSameExerciseSequence = current.name === previous.name && 
+                                         ((previous.sides === "right" && current.sides === "left"));
+            
+            if (isSameExerciseSequence) {
+                // For same exercise sequence, just say the side and start immediately
+                speak("Left side");
+                timeRemaining = current.duration;
+                isTransition = false;
+                document.getElementById('transitionIndicator').classList.add('hidden');
+            } else {
+                // Different exercise - need transition time
+                isTransition = true;
+                timeRemaining = parseInt(document.getElementById('transitionTime').value);
+                document.getElementById('transitionIndicator').classList.remove('hidden');
+                
+                // Announce the next exercise during transition
+                let announcement = current.name;
+                if (current.sides === "right") {
+                    announcement += " right side";
+                } else if (current.sides === "left") {
+                    announcement += " left side";
+                }
+                speak(announcement);
+            }
+        }
+
+        function skipNext() {
+            if (currentRollIndex >= rolls.length - 1) return;
+            
+            currentRollIndex++;
+            
+            const current = rolls[currentRollIndex];
+            
+            isTransition = false;
+            timeRemaining = current.duration;
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            let announcement = current.name;
+            if (current.sides === "right") {
+                announcement += " right side";
+            } else if (current.sides === "left") {
+                announcement += " left side";
+            }
+            
+            if (isRunning || isPaused) {
+                speak(announcement);
+            }
+            
+            updateDisplay();
+        }
+
+        function goBack() {
+            if (currentRollIndex <= 0) return;
+            
+            currentRollIndex--;
+            
+            const current = rolls[currentRollIndex];
+            
+            isTransition = false;
+            timeRemaining = current.duration;
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            let announcement = current.name;
+            if (current.sides === "right") {
+                announcement += " right side";
+            } else if (current.sides === "left") {
+                announcement += " left side";
+            }
+            
+            if (isRunning || isPaused) {
+                speak(announcement);
+            }
+            
+            updateDisplay();
+        }
+
+        function completeRoutine() {
+            isRunning = false;
+            isTransition = false;
+            clearInterval(timer);
+            
+            speak("Rolling complete! Great work!");
+            
+            document.getElementById('rollName').textContent = 'Rolling Complete! 🎉';
+            document.getElementById('rollSide').textContent = '';
+            document.getElementById('rollInfo').textContent = 'Excellent work! Your body is ready for action.';
+            document.getElementById('rollInstructions').textContent = '';
+            document.getElementById('timerDisplay').textContent = '0:00';
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('transitionIndicator').classList.add('hidden');
+            
+            releaseWakeLock();
+        }
+
+        function toggleSettings() {
+            const panel = document.getElementById('settingsPanel');
+            panel.classList.toggle('hidden');
+            updateRollList();
+        }
+
+        function addRoll() {
+            const name = document.getElementById('newRollName').value.trim();
+            const description = document.getElementById('newRollDescription').value.trim();
+            const duration = parseInt(document.getElementById('newRollDuration').value);
+            const sides = document.getElementById('newRollSides').value;
+            const target = document.getElementById('newRollTarget').value.trim();
+            
+            if (name && duration > 0 && target) {
+                if (sides === "both") {
+                    rolls.push({
+                        name: name,
+                        target: target,
+                        duration: duration,
+                        sides: "right",
+                        icon: "🔴",
+                        description: description || "Foam rolling exercise",
+                        searchTerms: name.toLowerCase()
+                    });
+                    rolls.push({
+                        name: name,
+                        target: target,
+                        duration: duration,
+                        sides: "left",
+                        icon: "🔴",
+                        description: description || "Foam rolling exercise",
+                        searchTerms: name.toLowerCase()
+                    });
+                } else {
+                    rolls.push({
+                        name: name,
+                        target: target,
+                        duration: duration,
+                        sides: sides,
+                        icon: "🔴",
+                        description: description || "Foam rolling exercise",
+                        searchTerms: name.toLowerCase()
+                    });
+                }
+                
+                // Clear form
+                document.getElementById('newRollName').value = '';
+                document.getElementById('newRollDescription').value = '';
+                document.getElementById('newRollDuration').value = '90';
+                document.getElementById('newRollSides').value = 'none';
+                document.getElementById('newRollTarget').value = '';
+                
+                updateRollList();
+                updateTotalTime();
+            }
+        }
+
+        function removeRoll(index) {
+            rolls.splice(index, 1);
+            updateRollList();
+            updateTotalTime();
+        }
+
+        function updateRollList() {
+            const list = document.getElementById('rollList');
+            list.innerHTML = '';
+            
+            rolls.forEach((roll, index) => {
+                const item = document.createElement('div');
+                item.className = 'roll-item';
+                
+                const details = document.createElement('div');
+                details.className = 'roll-details';
+                
+                const title = document.createElement('div');
+                title.className = 'roll-title';
+                title.textContent = `${getRollIcon(roll)} ${roll.name}`;
+                if (roll.sides !== "none") {
+                    title.textContent += ` (${roll.sides})`;
+                }
+                
+                const meta = document.createElement('div');
+                meta.className = 'roll-meta';
+                meta.textContent = `${roll.target} • ${formatTime(roll.duration)}`;
+                
+                details.appendChild(title);
+                details.appendChild(meta);
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'btn btn-outline';
+                removeBtn.style.cssText = 'padding: 4px 12px; font-size: 0.8em; min-width: auto;';
+                removeBtn.textContent = 'Remove';
+                removeBtn.onclick = () => removeRoll(index);
+                
+                item.appendChild(details);
+                item.appendChild(removeBtn);
+                list.appendChild(item);
+            });
+        }
+
+        function updateTotalTime() {
+            const total = calculateTotalTime();
+            document.getElementById('timeRemaining').textContent = `Total: ${formatTime(total)}`;
+            
+            if (!isRunning) {
+                document.getElementById('timerDisplay').textContent = formatTime(total);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('playPauseBtn').addEventListener('click', togglePlayPause);
+        document.getElementById('stopBtn').addEventListener('click', stopRoutine);
+        document.getElementById('backBtn').addEventListener('click', goBack);
+        document.getElementById('skipBtn').addEventListener('click', skipNext);
+        document.getElementById('settingsBtn').addEventListener('click', toggleSettings);
+        document.getElementById('testVoiceBtn').addEventListener('click', testVoice);
+        document.getElementById('addRollBtn').addEventListener('click', addRoll);
+
+        document.getElementById('voiceSpeed').addEventListener('input', function() {
+            voiceSpeed = parseFloat(this.value);
+            document.getElementById('speedValue').textContent = voiceSpeed.toFixed(1) + 'x';
+        });
+
+        document.getElementById('voicePitch').addEventListener('input', function() {
+            voicePitch = parseFloat(this.value);
+            document.getElementById('pitchValue').textContent = voicePitch.toFixed(1);
+        });
+
+        document.getElementById('voiceSelect').addEventListener('change', function() {
+            const index = parseInt(this.value);
+            selectedVoice = isNaN(index) ? null : voices[index];
+        });
+
+        document.getElementById('transitionTime').addEventListener('change', updateTotalTime);
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                togglePlayPause();
+            } else if (e.code === 'Escape') {
+                stopRoutine();
+            } else if (e.code === 'ArrowRight') {
+                e.preventDefault();
+                skipNext();
+            } else if (e.code === 'ArrowLeft') {
+                e.preventDefault();
+                goBack();
+            }
+        });
+
+        // Mobile-specific event listeners
+        document.addEventListener('touchstart', trackInteraction, { passive: true });
+        document.addEventListener('touchend', trackInteraction, { passive: true });
+        document.addEventListener('click', trackInteraction);
+
+        // Check for screen wake periodically during workout
+        setInterval(checkScreenWake, 10000);
+
+        // Handle page visibility changes
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && isRunning) {
+                console.log('App backgrounded during workout');
+            } else if (!document.hidden && isRunning) {
+                console.log('App foregrounded during workout');
+                requestWakeLock();
+            }
+        });
+
+        // Prevent accidental zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Initialize
+        updateDisplay();
+        updateRollList();
+        updateTotalTime();
+    </script>
+</body>
+</html>
+            
